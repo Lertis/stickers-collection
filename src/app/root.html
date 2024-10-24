@@ -1,0 +1,5 @@
+<div class="container">
+  <div class="list">
+    <dbz-item-card *ngFor="let item of list; trackBy:trackBy" [item]="item" (itemChange)="change($event)"></dbz-item-card>
+  </div>
+</div>
