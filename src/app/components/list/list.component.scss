@@ -7,7 +7,22 @@
     border-radius: 10px;
     display: grid;
     place-items: center;
-    height: 15vh;
+    min-height: 15vh;
+    padding: 15px 0;
+
+    .vertical-image {
+      width: 200px;
+      max-width: 200px;
+      height: 100px;
+      max-height: 100px;
+    }
+
+    .horizontal-image {
+      width: 100px;
+      max-width: 100px;
+      height: 200px;
+      max-height: 200px;
+    }
   }
   .card:hover {
     cursor: pointer;
