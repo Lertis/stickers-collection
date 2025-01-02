@@ -6,21 +6,26 @@
 
   <div class="details">
     <div class="status">
-      <ng-select appendTo="body" [items]="items" [multiple]="false" [closeOnSelect]="true" [hideSelected]="true"
-        [searchable]="false" [clearable]="false" [(ngModel)]="selected" placeholder="Статус" (change)="change($event)">
-        <ng-template ng-label-tmp let-item="item">
+      <ng-container *ngIf="readonly; else selection">
+        <div class="readonly">
           <span *ngIf="item.has">✅</span>
-          <span *ngIf="!item.has && item.found">🚚</span>
-          <span *ngIf="!item.has && !item.found">❌</span>
-        </ng-template>
-        <ng-template ng-option-tmp let-item="item" let-index="index">
-          <span *ngIf="item.has">✅</span>
-          <span *ngIf="!item.has && item.found">🚚</span>
-          <span *ngIf="!item.has && !item.found">❌</span>
-        </ng-template>
-      </ng-select>
+          <span *ngIf="!item.has">❌</span>
+        </div>
+      </ng-container>
+      <ng-template #selection>
+        <ng-select appendTo="body" [items]="items" [multiple]="false" [closeOnSelect]="true" [hideSelected]="true"
+          [searchable]="false" [clearable]="false" [(ngModel)]="selected" placeholder="Статус"
+          (change)="change($event)">
+          <ng-template ng-label-tmp let-item="item">
+            <span *ngIf="item.has">✅</span>
+            <span *ngIf="!item.has">❌</span>
+          </ng-template>
+          <ng-template ng-option-tmp let-item="item" let-index="index">
+            <span *ngIf="item.has">✅</span>
+            <span *ngIf="!item.has">❌</span>
+          </ng-template>
+        </ng-select>
+      </ng-template>
     </div>
-
-    <div class="quantity">{{ item.count }} шт.</div>
   </div>
 </div>

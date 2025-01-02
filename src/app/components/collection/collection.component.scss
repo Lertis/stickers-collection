@@ -5,14 +5,12 @@
   gap: 15px;
   margin: 15px;
   .has,
-  .in-delivery,
   .absent {
     border: 1px dotted;
     border-radius: 4px;
     padding: 5px;
   }
   .has,
-  .in-delivery,
   .absent:hover {
     cursor: pointer;
   }
@@ -20,15 +18,6 @@
     border-color: #00d26a;
     &__active {
       background: rgba($color: #00d26a, $alpha: 0.1);
-    }
-    &__inactive {
-      cursor: not-allowed;
-    }
-  }
-  .in-delivery {
-    border-color: #ff822d;
-    &__active {
-      background: rgba($color: #ff822d, $alpha: 0.1);
     }
     &__inactive {
       cursor: not-allowed;

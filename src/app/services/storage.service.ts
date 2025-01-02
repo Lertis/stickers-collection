@@ -21,10 +21,9 @@ export class CollectionStorageService {
     localStorage.setItem(this.key, JSON.stringify(collection))
   }
 
-  change = ({ number, has, found }: { number: number, has: boolean, found: boolean }) => {
+  change = ({ number, has }: { number: number, has: boolean }) => {
     const all = this.get()
     const i = this.index(number)
-    all[i].found = found
     all[i].has = has
     this.set(all)
   }
