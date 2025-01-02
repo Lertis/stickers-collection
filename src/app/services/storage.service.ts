@@ -3,7 +3,15 @@ import { CollectionItem } from '../model'
 
 @Injectable({ providedIn: 'root' })
 export class CollectionStorageService {
-  private readonly key = 'dbz'
+  private _k: string
+
+  set key (v: string) {
+    this._k = v
+  }
+
+  get key (): string {
+    return this._k
+  }
 
   get (): CollectionItem[] {
     return JSON.parse(localStorage.getItem(this.key))

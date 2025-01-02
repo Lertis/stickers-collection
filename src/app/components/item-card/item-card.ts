@@ -1,25 +1,28 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, inject, Input, OnChanges, Output, SimpleChange } from '@angular/core'
 
 import { CollectionItem, ItemChange } from '../../model'
+import { RoutePath } from '../../const'
 
 @Component({
-  selector: 'dbz-item-card',
+  selector: 'stk-item-card',
   templateUrl: './item-card.html',
   styleUrls: ['./item-card.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ItemCardComponent implements OnChanges {
   @Input({ required: true }) item: CollectionItem
+  @Input({ required: true }) key: RoutePath
 
   @Output() itemChange = new EventEmitter<ItemChange & { number: number }>()
 
   path: string
 
   selected: ItemChange
+
   items: Array<ItemChange> = [
     { has: true, found: false },
     { has: false, found: true },
-    { has: false, found: false },
+    { has: false, found: false }
   ];
 
   private readonly cdr: ChangeDetectorRef = inject(ChangeDetectorRef)
@@ -33,5 +36,5 @@ export class ItemCardComponent implements OnChanges {
 
   change = (e: ItemChange) => this.itemChange.emit({ ...e, number: this.item.number })
 
-  private readonly createPath = (n: number): string => `assets/img/${n}.jpg`
+  private readonly createPath = (n: number): string => `assets/img/${this.key}/${n}.jpg`
 }

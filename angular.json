@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "dragon-ball-z": {
+    "stickers": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -12,12 +12,12 @@
       },
       "root": "",
       "sourceRoot": "src",
-      "prefix": "dbz",
+      "prefix": "stk",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/dragon-ball-z",
+            "outputPath": "dist/stickers",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -65,10 +65,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "dragon-ball-z:build:production"
+              "browserTarget": "stickers:build:production"
             },
             "development": {
-              "browserTarget": "dragon-ball-z:build:development"
+              "browserTarget": "stickers:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -76,7 +76,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "dragon-ball-z:build"
+            "browserTarget": "stickers:build"
           }
         },
         "test": {

@@ -1,0 +1,5 @@
+<div class="container">
+  <div class="card" *ngFor="let item of collections" (click)="navigate(item.path)">
+    {{ item.name }}
+  </div>
+</div>

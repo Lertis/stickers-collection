@@ -1,0 +1,11 @@
+<div class="statistic">
+  <div class="has" [ngClass]="{ 'has__active': filterState.has, 'has__inactive': has <= 0 }" (click)="hasFilter()">✅: {{ has }}шт</div>
+  <div class="in-delivery" [ngClass]="{ 'in-delivery__active': filterState.delivery, 'in-delivery__inactive': found <= 0 }" (click)="inDeliveryFilter()">🚚:
+    {{ found }}шт</div>
+  <div class="absent" [ngClass]="{ 'absent__active': filterState.absent, 'absent__inactive': absent <= 0 }" (click)="absentFilter()">❌: {{ absent }}шт
+  </div>
+</div>
+<div class="list">
+  <stk-item-card *ngFor="let item of list$ | async; trackBy:trackBy" [item]="item" [key]="key"
+    (itemChange)="change($event)"></stk-item-card>
+</div>
