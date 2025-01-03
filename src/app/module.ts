@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core'
+import { APP_INITIALIZER, NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { Route, RouterModule } from '@angular/router'
@@ -11,7 +11,8 @@ import { CollectionOutletComponent } from './components/collection-outlet/collec
 import { CollectionComponent } from './components/collection/collection.component'
 import { ItemCardComponent } from './components/item-card/item-card'
 
-import { RoutePath } from './const'
+import { INIT_APP_CONFIG, RoutePath } from './const'
+import { CollectionStorageService } from './services'
 
 const routes: Route[] = [
   {
@@ -95,7 +96,21 @@ const routes: Route[] = [
     ReactiveFormsModule,
     NgSelectModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: APP_INITIALIZER,
+      useFactory: (c: CollectionStorageService): () => void => {
+        return () => {
+          INIT_APP_CONFIG.forEach(({ path, coll }) => {
+            c.key = path
+            if (!c.get()) c.set(coll)
+          })
+        }
+      },
+      deps: [CollectionStorageService],
+      multi: true
+    },
+  ],
   bootstrap: [RootComponent]
 })
 export class RootModule { }
