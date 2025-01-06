@@ -77,10 +77,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "stickers:build:production"
+              "buildTarget": "stickers:build:production"
             },
             "development": {
-              "browserTarget": "stickers:build:development"
+              "buildTarget": "stickers:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -88,7 +88,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "stickers:build"
+            "buildTarget": "stickers:build"
           }
         },
         "test": {
