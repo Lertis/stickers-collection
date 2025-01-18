@@ -15,6 +15,7 @@
       max-width: 200px;
       height: 100px;
       max-height: 100px;
+      filter: brightness(0.85);
     }
 
     .horizontal-image {
@@ -22,6 +23,7 @@
       max-width: 100px;
       height: 200px;
       max-height: 200px;
+      filter: brightness(0.85);
     }
   }
   .card:hover {
