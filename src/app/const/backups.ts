@@ -1,6 +1,6 @@
 export const DRAGON_BALL_NO_CIRCLES_BACKUP = [
   {
-    has: false,
+    has: true,
     number: 1,
     vertical: true
   },
@@ -195,7 +195,7 @@ export const DRAGON_BALL_NO_CIRCLES_BACKUP = [
     vertical: true
   },
   {
-    has: false,
+    has: true,
     number: 40,
     vertical: true
   },
@@ -205,7 +205,7 @@ export const DRAGON_BALL_NO_CIRCLES_BACKUP = [
     vertical: true
   },
   {
-    has: false,
+    has: true,
     number: 42,
     vertical: true
   },
@@ -1466,7 +1466,7 @@ export const DRAGON_BALL_Z_YELLOW_DOT_BACKUP = [
   },
   {
     number: 8,
-    has: false,
+    has: true,
     vertical: false
   },
   {
