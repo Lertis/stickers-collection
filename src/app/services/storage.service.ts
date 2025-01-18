@@ -21,6 +21,10 @@ export class CollectionStorageService {
     localStorage.setItem(this.key, JSON.stringify(collection))
   }
 
+  clear (): void {
+    localStorage.removeItem(this.key)
+  }
+
   change = ({ number, has }: { number: number, has: boolean }) => {
     const all = this.get()
     const i = this.index(number)
