@@ -1428,6 +1428,99 @@ export const JACKIE_CHAN_BACKUP = [
   }
 ]
 
+export const JACKIE_CHAN_STAR_BACKUP = [
+  {
+    has: false,
+    number: 1,
+    vertical: false
+  },
+  {
+    has: false,
+    number: 2,
+    vertical: false
+  },
+  {
+    has: false,
+    number: 3,
+    vertical: false
+  },
+  {
+    has: false,
+    number: 4,
+    vertical: false
+  },
+  {
+    has: false,
+    number: 5,
+    vertical: false
+  },
+  {
+    has: false,
+    number: 6,
+    vertical: false
+  },
+  {
+    has: false,
+    number: 7,
+    vertical: false
+  },
+  {
+    has: false,
+    number: 8,
+    vertical: false
+  },
+  {
+    has: false,
+    number: 9,
+    vertical: false
+  },
+  {
+    has: false,
+    number: 10,
+    vertical: false
+  },
+  {
+    has: false,
+    number: 11,
+    vertical: false
+  },
+  {
+    has: false,
+    number: 12,
+    vertical: false
+  },
+  {
+    has: false,
+    number: 13,
+    vertical: false
+  },
+  {
+    has: false,
+    number: 14,
+    vertical: false
+  },
+  {
+    has: false,
+    number: 15,
+    vertical: false
+  },
+  {
+    has: false,
+    number: 16,
+    vertical: false
+  },
+  {
+    has: false,
+    number: 17,
+    vertical: false
+  },
+  {
+    has: false,
+    number: 18,
+    vertical: false
+  }
+]
+
 export const DRAGON_BALL_Z_YELLOW_DOT_BACKUP = [
   {
     number: 1,

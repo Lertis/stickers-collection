@@ -78,6 +78,11 @@ const routes: Route[] = [
     path: RoutePath.JACKIE_CHAN,
     component: CollectionOutletComponent,
     data: { key: RoutePath.JACKIE_CHAN }
+  },
+  {
+    path: RoutePath.JACKIE_CHAN_STAR,
+    component: CollectionOutletComponent,
+    data: { key: RoutePath.JACKIE_CHAN_STAR }
   }
 ]
 

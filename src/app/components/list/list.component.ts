@@ -20,7 +20,8 @@ export class ListComponent {
     { name: 'Lion King', path: RoutePath.LION_KING, cover: `./assets/img/${RoutePath.LION_KING}/cover.jpg`, vertical: true },
     { name: 'Digimons', path: RoutePath.DIGIMONS, cover: `./assets/img/${RoutePath.DIGIMONS}/cover.jpg`, vertical: false },
     { name: 'Digimons shiny', path: RoutePath.DIGIMONS_SHINY, cover: `./assets/img/${RoutePath.DIGIMONS_SHINY}/cover.jpg`, vertical: false },
-    { name: 'Jackie Chan', path: RoutePath.JACKIE_CHAN, cover: `./assets/img/${RoutePath.JACKIE_CHAN}/cover.jpg`, vertical: true }
+    { name: 'Jackie Chan', path: RoutePath.JACKIE_CHAN, cover: `./assets/img/${RoutePath.JACKIE_CHAN}/cover.jpg`, vertical: true },
+    { name: 'Jackie Chan', path: RoutePath.JACKIE_CHAN_STAR, cover: `./assets/img/${RoutePath.JACKIE_CHAN_STAR}/cover.jpg`, vertical: true }
   ]
 
   constructor (private readonly router: Router) { }

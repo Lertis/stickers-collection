@@ -10,5 +10,6 @@ export enum RoutePath {
   LION_KING = 'lion-king',
   DIGIMONS = 'digimons',
   DIGIMONS_SHINY = 'digimons-shiny',
-  JACKIE_CHAN = 'jackie-chan'
+  JACKIE_CHAN = 'jackie-chan',
+  JACKIE_CHAN_STAR = 'jackie-chan-star'
 }
