@@ -1176,350 +1176,63 @@ export const LION_KING_BACKUP = [
 ]
 
 export const JACKIE_CHAN_BACKUP = [
-  {
-    has: false,
-    number: 1,
-    vertical: false
-  },
-  {
-    has: false,
-    number: 2,
-    vertical: false
-  },
-  {
-    has: false,
-    number: 3,
-    vertical: false
-  },
-  {
-    has: false,
-    number: 4,
-    vertical: false
-  },
-  {
-    has: false,
-    number: 5,
-    vertical: false
-  },
-  {
-    has: false,
-    number: 6,
-    vertical: false
-  },
-  {
-    has: false,
-    number: 7,
-    vertical: false
-  },
-  {
-    has: false,
-    number: 8,
-    vertical: false
-  },
-  {
-    has: false,
-    number: 9,
-    vertical: false
-  },
-  {
-    has: false,
-    number: 10,
-    vertical: false
-  },
-  {
-    has: false,
-    number: 11,
-    vertical: false
-  },
-  {
-    has: false,
-    number: 12,
-    vertical: false
-  },
-  {
-    has: false,
-    number: 13,
-    vertical: false
-  },
-  {
-    has: false,
-    number: 14,
-    vertical: false
-  },
-  {
-    has: false,
-    number: 15,
-    vertical: false
-  },
-  {
-    has: false,
-    number: 16,
-    vertical: false
-  },
-  {
-    has: false,
-    number: 17,
-    vertical: false
-  },
-  {
-    has: false,
-    number: 18,
-    vertical: false
-  },
-  {
-    has: false,
-    number: 19,
-    vertical: false
-  },
-  {
-    has: false,
-    number: 20,
-    vertical: false
-  },
-  {
-    has: false,
-    number: 21,
-    vertical: false
-  },
-  {
-    has: false,
-    number: 22,
-    vertical: false
-  },
-  {
-    has: false,
-    number: 23,
-    vertical: false
-  },
-  {
-    has: false,
-    number: 24,
-    vertical: false
-  },
-  {
-    has: false,
-    number: 25,
-    vertical: false
-  },
-  {
-    has: false,
-    number: 26,
-    vertical: false
-  },
-  {
-    has: false,
-    number: 27,
-    vertical: false
-  },
-  {
-    has: false,
-    number: 28,
-    vertical: false
-  },
-  {
-    has: false,
-    number: 29,
-    vertical: false
-  },
-  {
-    has: false,
-    number: 30,
-    vertical: false
-  },
-  {
-    has: false,
-    number: 31,
-    vertical: false
-  },
-  {
-    has: false,
-    number: 32,
-    vertical: false
-  },
-  {
-    has: false,
-    number: 33,
-    vertical: false
-  },
-  {
-    has: false,
-    number: 34,
-    vertical: false
-  },
-  {
-    has: false,
-    number: 35,
-    vertical: false
-  },
-  {
-    has: false,
-    number: 36,
-    vertical: false
-  },
-  {
-    has: false,
-    number: 37,
-    vertical: false
-  },
-  {
-    has: false,
-    number: 38,
-    vertical: false
-  },
-  {
-    has: false,
-    number: 39,
-    vertical: false
-  },
-  {
-    has: false,
-    number: 40,
-    vertical: false
-  },
-  {
-    has: false,
-    number: 41,
-    vertical: false
-  },
-  {
-    has: false,
-    number: 42,
-    vertical: false
-  },
-  {
-    has: false,
-    number: 43,
-    vertical: false
-  },
-  {
-    has: false,
-    number: 44,
-    vertical: false
-  },
-  {
-    has: false,
-    number: 45,
-    vertical: false
-  },
-  {
-    has: false,
-    number: 46,
-    vertical: false
-  },
-  {
-    has: false,
-    number: 47,
-    vertical: false
-  },
-  {
-    has: false,
-    number: 48,
-    vertical: false
-  },
-  {
-    has: false,
-    number: 49,
-    vertical: false
-  },
-  {
-    has: false,
-    number: 50,
-    vertical: false
-  }
+  { number: 1, has: true, vertical: false },
+  { number: 2, has: true, vertical: false },
+  { number: 3, has: true, vertical: false },
+  { number: 4, has: true, vertical: false },
+  { number: 5, has: true, vertical: false },
+  { number: 6, has: true, vertical: false },
+  { number: 7, has: true, vertical: false },
+  { number: 8, has: true, vertical: false },
+  { number: 9, has: true, vertical: false },
+  { number: 10, has: true, vertical: false },
+  { number: 11, has: true, vertical: false },
+  { number: 12, has: true, vertical: false },
+  { number: 13, has: true, vertical: false },
+  { number: 14, has: true, vertical: false },
+  { number: 15, has: true, vertical: false },
+  { number: 16, has: true, vertical: false },
+  { number: 17, has: true, vertical: false },
+  { number: 18, has: true, vertical: false },
+  { number: 19, has: true, vertical: false },
+  { number: 20, has: true, vertical: false },
+  { number: 21, has: true, vertical: false },
+  { number: 22, has: true, vertical: false },
+  { number: 23, has: true, vertical: false },
+  { number: 24, has: true, vertical: false },
+  { number: 25, has: true, vertical: false },
+  { number: 26, has: true, vertical: false },
+  { number: 27, has: true, vertical: false },
+  { number: 28, has: true, vertical: false },
+  { number: 29, has: true, vertical: false },
+  { number: 30, has: true, vertical: false },
+  { number: 31, has: true, vertical: false },
+  { number: 32, has: true, vertical: false },
+  { number: 33, has: true, vertical: true },
+  { number: 34, has: true, vertical: false },
+  { number: 35, has: true, vertical: false }
 ]
 
 export const JACKIE_CHAN_STAR_BACKUP = [
-  {
-    has: false,
-    number: 1,
-    vertical: false
-  },
-  {
-    has: false,
-    number: 2,
-    vertical: false
-  },
-  {
-    has: false,
-    number: 3,
-    vertical: false
-  },
-  {
-    has: false,
-    number: 4,
-    vertical: false
-  },
-  {
-    has: false,
-    number: 5,
-    vertical: false
-  },
-  {
-    has: false,
-    number: 6,
-    vertical: false
-  },
-  {
-    has: false,
-    number: 7,
-    vertical: false
-  },
-  {
-    has: false,
-    number: 8,
-    vertical: false
-  },
-  {
-    has: false,
-    number: 9,
-    vertical: false
-  },
-  {
-    has: false,
-    number: 10,
-    vertical: false
-  },
-  {
-    has: false,
-    number: 11,
-    vertical: false
-  },
-  {
-    has: false,
-    number: 12,
-    vertical: false
-  },
-  {
-    has: false,
-    number: 13,
-    vertical: false
-  },
-  {
-    has: false,
-    number: 14,
-    vertical: false
-  },
-  {
-    has: false,
-    number: 15,
-    vertical: false
-  },
-  {
-    has: false,
-    number: 16,
-    vertical: false
-  },
-  {
-    has: false,
-    number: 17,
-    vertical: false
-  },
-  {
-    has: false,
-    number: 18,
-    vertical: false
-  }
-]
+  { has: true, number: 1, vertical: false },
+  { has: false, number: 2, vertical: false },
+  { has: false, number: 3, vertical: false },
+  { has: false, number: 4, vertical: false },
+  { has: false, number: 5, vertical: false },
+  { has: false, number: 6, vertical: false },
+  { has: false, number: 7, vertical: false },
+  { has: true, number: 8, vertical: false },
+  { has: false, number: 9, vertical: false },
+  { has: false, number: 10, vertical: false },
+  { has: false, number: 11, vertical: false },
+  { has: true, number: 12, vertical: false },
+  { has: false, number: 13, vertical: false },
+  { has: false, number: 14, vertical: false },
+  { has: false, number: 15, vertical: false },
+  { has: false, number: 16, vertical: false },
+  { has: false, number: 17, vertical: false },
+  { has: false, number: 18, vertical: false }]
+
 
 export const DRAGON_BALL_Z_YELLOW_DOT_BACKUP = [
   {
