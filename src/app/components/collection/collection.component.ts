@@ -5,6 +5,7 @@ import { BehaviorSubject } from 'rxjs'
 import { CollectionStorageService } from '../../services'
 import { CollectionItem } from '../../model'
 import { RoutePath } from '../../const'
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'stk-collection',
@@ -20,7 +21,10 @@ export class CollectionComponent implements OnInit {
 
   private list: CollectionItem[] = []
 
-  constructor (private readonly storage: CollectionStorageService) { }
+  constructor (
+    private readonly storage: CollectionStorageService,
+    private readonly router: Router
+  ) { }
 
   ngOnInit (): void {
     this.initStorage()
@@ -32,9 +36,11 @@ export class CollectionComponent implements OnInit {
 
   get absent (): number { return this.list.length - this.has }
 
+  readonly back = (): void => { this.router.navigate(['/list']) }
+
   readonly trackBy = (i: number): number => i
 
-  readonly change = (e: {has: boolean, number: number }) => {
+  readonly change = (e: { has: boolean, number: number }) => {
     this.storage.change({ ...e })
     this.updateList()
     this.setFilters()

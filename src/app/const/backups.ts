@@ -1267,7 +1267,7 @@ export const JACKIE_CHAN_BACKUP = [
     vertical: false
   },
   {
-    has: false,
+    has: true,
     number: 19,
     vertical: false
   },
@@ -1307,17 +1307,17 @@ export const JACKIE_CHAN_BACKUP = [
     vertical: false
   },
   {
-    has: false,
+    has: true,
     number: 27,
     vertical: false
   },
   {
-    has: false,
+    has: true,
     number: 28,
     vertical: false
   },
   {
-    has: false,
+    has: true,
     number: 29,
     vertical: false
   },
@@ -1445,12 +1445,12 @@ export const JACKIE_CHAN_STAR_BACKUP = [
     vertical: false
   },
   {
-    has: false,
+    has: true,
     number: 4,
     vertical: false
   },
   {
-    has: false,
+    has: true,
     number: 5,
     vertical: false
   },
@@ -1460,22 +1460,22 @@ export const JACKIE_CHAN_STAR_BACKUP = [
     vertical: false
   },
   {
-    has: false,
+    has: true,
     number: 7,
     vertical: false
   },
   {
-    has: false,
+    has: true,
     number: 8,
     vertical: false
   },
   {
-    has: false,
+    has: true,
     number: 9,
     vertical: false
   },
   {
-    has: false,
+    has: true,
     number: 10,
     vertical: false
   },
@@ -1490,7 +1490,7 @@ export const JACKIE_CHAN_STAR_BACKUP = [
     vertical: false
   },
   {
-    has: false,
+    has: true,
     number: 13,
     vertical: false
   },
@@ -1500,12 +1500,12 @@ export const JACKIE_CHAN_STAR_BACKUP = [
     vertical: false
   },
   {
-    has: false,
+    has: true,
     number: 15,
     vertical: false
   },
   {
-    has: false,
+    has: true,
     number: 16,
     vertical: false
   },

@@ -2,6 +2,7 @@ import { APP_INITIALIZER, NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { Route, RouterModule } from '@angular/router'
+import { NgOptimizedImage } from '@angular/common'
 
 import { NgSelectModule } from '@ng-select/ng-select'
 
@@ -99,6 +100,7 @@ const routes: Route[] = [
     FormsModule,
     RouterModule.forRoot([...routes]),
     ReactiveFormsModule,
+    NgOptimizedImage,
     NgSelectModule
   ],
   providers: [
@@ -108,7 +110,7 @@ const routes: Route[] = [
         return () => {
           INIT_APP_CONFIG.forEach(({ path, coll }) => {
             c.key = path
-            c.clear()
+            // c.clear()
             if (!c.get()) c.set(coll)
           })
         }

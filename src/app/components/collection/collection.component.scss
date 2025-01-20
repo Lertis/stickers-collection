@@ -1,38 +1,49 @@
-.statistic {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 15px;
-  margin: 15px;
-  .has,
-  .absent {
-    border: 1px dotted;
-    border-radius: 4px;
-    padding: 5px;
-  }
-  .has,
-  .absent:hover {
-    cursor: pointer;
-  }
-  .has {
-    border-color: #00d26a;
-    &__active {
-      background: rgba($color: #00d26a, $alpha: 0.1);
-    }
-    &__inactive {
-      cursor: not-allowed;
+.header {
+  .back {
+    font-size: 40px;
+    padding: 0 50px;
+    &:hover {
+      cursor: pointer;
     }
   }
-  .absent {
-    border-color: #f92f60;
-    &__active {
-      background: rgba($color: #f92f60, $alpha: 0.1);
+
+  .statistic {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin: 15px;
+    .has,
+    .absent {
+      border: 1px dotted;
+      border-radius: 4px;
+      padding: 5px;
     }
-    &__inactive {
-      cursor: not-allowed;
+    .has,
+    .absent:hover {
+      cursor: pointer;
+    }
+    .has {
+      border-color: #00d26a;
+      &__active {
+        background: rgba($color: #00d26a, $alpha: 0.1);
+      }
+      &__inactive {
+        cursor: not-allowed;
+      }
+    }
+    .absent {
+      border-color: #f92f60;
+      &__active {
+        background: rgba($color: #f92f60, $alpha: 0.1);
+      }
+      &__inactive {
+        cursor: not-allowed;
+      }
     }
   }
 }
+
 .list {
   display: flex;
   justify-content: center;
