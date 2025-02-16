@@ -621,7 +621,7 @@ export const DIGIMONS_SHINY_BACKUP = [
     vertical: true
   },
   {
-    has: false,
+    has: true,
     number: 2,
     vertical: true
   },
@@ -771,7 +771,7 @@ export const DIGIMONS_SHINY_BACKUP = [
     vertical: false
   },
   {
-    has: false,
+    has: true,
     number: 32,
     vertical: true
   },
@@ -781,7 +781,7 @@ export const DIGIMONS_SHINY_BACKUP = [
     vertical: true
   },
   {
-    has: false,
+    has: true,
     number: 34,
     vertical: true
   },
@@ -806,7 +806,7 @@ export const DIGIMONS_SHINY_BACKUP = [
     vertical: true
   },
   {
-    has: false,
+    has: true,
     number: 39,
     vertical: false
   },
@@ -881,7 +881,7 @@ export const DIGIMONS_SHINY_BACKUP = [
     vertical: true
   },
   {
-    has: false,
+    has: true,
     number: 54,
     vertical: true
   },
@@ -946,7 +946,7 @@ export const DIGIMONS_SHINY_BACKUP = [
     vertical: true
   },
   {
-    has: false,
+    has: true,
     number: 67,
     vertical: true
   },
@@ -1187,7 +1187,7 @@ export const JACKIE_CHAN_BACKUP = [
     vertical: false
   },
   {
-    has: false,
+    has: true,
     number: 3,
     vertical: false
   },
@@ -1332,7 +1332,7 @@ export const JACKIE_CHAN_BACKUP = [
     vertical: false
   },
   {
-    has: false,
+    has: true,
     number: 32,
     vertical: false
   },
@@ -1422,7 +1422,7 @@ export const JACKIE_CHAN_BACKUP = [
     vertical: false
   },
   {
-    has: false,
+    has: true,
     number: 50,
     vertical: false
   }
@@ -1510,13 +1510,23 @@ export const JACKIE_CHAN_STAR_BACKUP = [
     vertical: false
   },
   {
-    has: false,
+    has: true,
     number: 17,
     vertical: false
   },
   {
     has: true,
     number: 18,
+    vertical: false
+  },
+  {
+    has: true,
+    number: 19,
+    vertical: false
+  },
+  {
+    has: true,
+    number: 20,
     vertical: false
   }
 ]
@@ -1807,7 +1817,7 @@ export const DRAGON_BALL_Z_YELLOW_DOT_BACKUP = [
 export const DRAGON_BALL_Z_RED_DOT_BACKUP = [
   {
     number: 1,
-    has: false,
+    has: true,
     vertical: false
   },
   {
@@ -1817,7 +1827,7 @@ export const DRAGON_BALL_Z_RED_DOT_BACKUP = [
   },
   {
     number: 3,
-    has: false,
+    has: true,
     vertical: false
   },
   {
@@ -1827,7 +1837,7 @@ export const DRAGON_BALL_Z_RED_DOT_BACKUP = [
   },
   {
     number: 5,
-    has: false,
+    has: true,
     vertical: true
   },
   {
@@ -1837,7 +1847,7 @@ export const DRAGON_BALL_Z_RED_DOT_BACKUP = [
   },
   {
     number: 7,
-    has: false,
+    has: true,
     vertical: false
   },
   {
@@ -2052,7 +2062,7 @@ export const DRAGON_BALL_Z_RED_DOT_BACKUP = [
   },
   {
     number: 50,
-    has: false,
+    has: true,
     vertical: true
   },
   {
@@ -2062,12 +2072,12 @@ export const DRAGON_BALL_Z_RED_DOT_BACKUP = [
   },
   {
     number: 52,
-    has: false,
+    has: true,
     vertical: false
   },
   {
     number: 53,
-    has: false,
+    has: true,
     vertical: false
   },
   {
@@ -2082,7 +2092,7 @@ export const DRAGON_BALL_Z_RED_DOT_BACKUP = [
   },
   {
     number: 56,
-    has: false,
+    has: true,
     vertical: false
   }
 ]
