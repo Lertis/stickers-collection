@@ -1,4 +1,4 @@
-import { APP_INITIALIZER, NgModule } from '@angular/core'
+import { APP_INITIALIZER, NgModule, isDevMode } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { Route, RouterModule } from '@angular/router'
@@ -13,7 +13,8 @@ import { CollectionComponent } from './components/collection/collection.componen
 import { ItemCardComponent } from './components/item-card/item-card'
 
 import { INIT_APP_CONFIG, RoutePath } from './const'
-import { CollectionStorageService } from './services'
+import { CollectionStorageService } from './services';
+import { ServiceWorkerModule } from '@angular/service-worker'
 
 const routes: Route[] = [
   {
@@ -101,7 +102,13 @@ const routes: Route[] = [
     RouterModule.forRoot([...routes]),
     ReactiveFormsModule,
     NgOptimizedImage,
-    NgSelectModule
+    NgSelectModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: !isDevMode(),
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    })
   ],
   providers: [
     {
