@@ -1538,6 +1538,26 @@ export const JACKIE_CHAN_STAR_BACKUP = [
     has: false,
     number: 21,
     vertical: false
+  },
+  {
+    has: false,
+    number: 22,
+    vertical: false
+  },
+  {
+    has: false,
+    number: 23,
+    vertical: false
+  },
+  {
+    has: false,
+    number: 24,
+    vertical: false
+  },
+  {
+    has: false,
+    number: 25,
+    vertical: false
   }
 ]
 
