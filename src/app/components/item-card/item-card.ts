@@ -16,21 +16,27 @@ export class ItemCardComponent implements OnChanges {
 
   @Output() itemChange = new EventEmitter<{ has: boolean, number: number }>()
 
+  visible = false
   path: string
+  width: number
+  height: number
   readonly = env.production
   selected: { has: boolean }
 
   items: Array<{ has: boolean }> = [
     { has: true },
     { has: false }
-  ];
+  ]
 
   private readonly cdr: ChangeDetectorRef = inject(ChangeDetectorRef)
 
   ngOnChanges (changes: { item: SimpleChange }): void {
-    const { number, has } = { ...changes?.item?.currentValue as CollectionItem }
+    const { number, has, vertical } = { ...changes?.item?.currentValue as CollectionItem }
     this.path = this.createPath(number)
+    this.width = vertical ? 100 : 200
+    this.height = vertical ? 200 : 100
     this.selected = { has }
+    this.visible = true
     this.cdr.markForCheck()
   }
 

@@ -2332,7 +2332,7 @@ export const DRAGON_BALL_FLEER_1_BACKUP = [
     vertical: true
   },
   {
-    has: false,
+    has: true,
     number: 5,
     vertical: false
   },
@@ -2515,7 +2515,7 @@ export const DRAGON_BALL_FLEER_1_BACKUP = [
 
 export const DRAGON_BALL_FLEER_2_BACKUP = [
   {
-    has: false,
+    has: true,
     number: 1,
     vertical: true
   },
@@ -2535,7 +2535,7 @@ export const DRAGON_BALL_FLEER_2_BACKUP = [
     vertical: false
   },
   {
-    has: false,
+    has: true,
     number: 5,
     vertical: false
   },
@@ -2575,7 +2575,7 @@ export const DRAGON_BALL_FLEER_2_BACKUP = [
     vertical: true
   },
   {
-    has: false,
+    has: true,
     number: 13,
     vertical: true
   },
@@ -2585,17 +2585,17 @@ export const DRAGON_BALL_FLEER_2_BACKUP = [
     vertical: true
   },
   {
-    has: false,
+    has: true,
     number: 15,
     vertical: true
   },
   {
-    has: false,
+    has: true,
     number: 16,
     vertical: false
   },
   {
-    has: false,
+    has: true,
     number: 17,
     vertical: false
   },
@@ -2610,7 +2610,7 @@ export const DRAGON_BALL_FLEER_2_BACKUP = [
     vertical: true
   },
   {
-    has: false,
+    has: true,
     number: 20,
     vertical: true
   },
@@ -2620,7 +2620,7 @@ export const DRAGON_BALL_FLEER_2_BACKUP = [
     vertical: true
   },
   {
-    has: false,
+    has: true,
     number: 22,
     vertical: false
   },
@@ -2630,7 +2630,7 @@ export const DRAGON_BALL_FLEER_2_BACKUP = [
     vertical: false
   },
   {
-    has: false,
+    has: true,
     number: 24,
     vertical: false
   },
@@ -2640,7 +2640,7 @@ export const DRAGON_BALL_FLEER_2_BACKUP = [
     vertical: false
   },
   {
-    has: false,
+    has: true,
     number: 26,
     vertical: true
   },
@@ -2660,7 +2660,7 @@ export const DRAGON_BALL_FLEER_2_BACKUP = [
     vertical: false
   },
   {
-    has: false,
+    has: true,
     number: 30,
     vertical: false
   },
@@ -2745,7 +2745,7 @@ export const DRAGON_BALL_FLEER_2_BACKUP = [
     vertical: true
   },
   {
-    has: false,
+    has: true,
     number: 47,
     vertical: true
   },
@@ -2775,7 +2775,7 @@ export const DRAGON_BALL_FLEER_2_BACKUP = [
     vertical: false
   },
   {
-    has: false,
+    has: true,
     number: 53,
     vertical: false
   },
@@ -2815,7 +2815,7 @@ export const DRAGON_BALL_FLEER_2_BACKUP = [
     vertical: false
   },
   {
-    has: false,
+    has: true,
     number: 61,
     vertical: false
   },
@@ -2833,6 +2833,349 @@ export const DRAGON_BALL_FLEER_2_BACKUP = [
     has: false,
     number: 64,
     vertical: false
+  },
+  {
+    has: false,
+    number: 65,
+    vertical: false
+  },
+  {
+    has: true,
+    number: 66,
+    vertical: true
+  },
+  {
+    has: false,
+    number: 67,
+    vertical: false
+  },
+  {
+    has: false,
+    number: 68,
+    vertical: false
+  }
+]
+
+export const DRAGON_BALL_FLEER_3_BACKUP = [
+  {
+    has: false,
+    number: 1,
+    vertical: true
+  },
+  {
+    has: true,
+    number: 2,
+    vertical: true
+  },
+  {
+    has: false,
+    number: 3,
+    vertical: true
+  },
+  {
+    has: true,
+    number: 4,
+    vertical: false
+  },
+  {
+    has: false,
+    number: 5,
+    vertical: true
+  },
+  {
+    has: true,
+    number: 6,
+    vertical: true
+  },
+  {
+    has: false,
+    number: 7,
+    vertical: false
+  },
+  {
+    has: false,
+    number: 8,
+    vertical: true
+  },
+  {
+    has: false,
+    number: 9,
+    vertical: true
+  },
+  {
+    has: true,
+    number: 10,
+    vertical: true
+  },
+  {
+    has: true,
+    number: 11,
+    vertical: true
+  },
+  {
+    has: true,
+    number: 12,
+    vertical: true
+  },
+  {
+    has: true,
+    number: 13,
+    vertical: true
+  },
+  {
+    has: true,
+    number: 14,
+    vertical: true
+  },
+  {
+    has: true,
+    number: 15,
+    vertical: true
+  },
+  {
+    has: true,
+    number: 16,
+    vertical: true
+  },
+  {
+    has: false,
+    number: 17,
+    vertical: false
+  },
+  {
+    has: false,
+    number: 18,
+    vertical: true
+  },
+  {
+    has: false,
+    number: 19,
+    vertical: true
+  },
+  {
+    has: true,
+    number: 20,
+    vertical: false
+  },
+  {
+    has: false,
+    number: 21,
+    vertical: true
+  },
+  {
+    has: true,
+    number: 22,
+    vertical: true
+  },
+  {
+    has: true,
+    number: 23,
+    vertical: true
+  },
+  {
+    has: false,
+    number: 24,
+    vertical: false
+  },
+  {
+    has: false,
+    number: 25,
+    vertical: false
+  },
+  {
+    has: false,
+    number: 26,
+    vertical: true
+  },
+  {
+    has: false,
+    number: 27,
+    vertical: true
+  },
+  {
+    has: false,
+    number: 28,
+    vertical: true
+  },
+  {
+    has: true,
+    number: 29,
+    vertical: true
+  },
+  {
+    has: true,
+    number: 30,
+    vertical: true
+  },
+  {
+    has: true,
+    number: 31,
+    vertical: true
+  },
+  {
+    has: false,
+    number: 32,
+    vertical: true
+  },
+  {
+    has: false,
+    number: 33,
+    vertical: true
+  },
+  {
+    has: false,
+    number: 34,
+    vertical: true
+  },
+  {
+    has: true,
+    number: 35,
+    vertical: true
+  },
+  {
+    has: true,
+    number: 36,
+    vertical: true
+  },
+  {
+    has: true,
+    number: 37,
+    vertical: true
+  },
+  {
+    has: true,
+    number: 38,
+    vertical: true
+  },
+  {
+    has: true,
+    number: 39,
+    vertical: true
+  },
+  {
+    has: false,
+    number: 40,
+    vertical: false
+  },
+  {
+    has: false,
+    number: 41,
+    vertical: true
+  },
+  {
+    has: true,
+    number: 42,
+    vertical: true
+  },
+  {
+    has: false,
+    number: 43,
+    vertical: true
+  },
+  {
+    has: true,
+    number: 44,
+    vertical: true
+  },
+  {
+    has: true,
+    number: 45,
+    vertical: true
+  },
+  {
+    has: true,
+    number: 46,
+    vertical: true
+  },
+  {
+    has: false,
+    number: 47,
+    vertical: true
+  },
+  {
+    has: false,
+    number: 48,
+    vertical: true
+  },
+  {
+    has: false,
+    number: 49,
+    vertical: true
+  },
+  {
+    has: true,
+    number: 50,
+    vertical: true
+  },
+  {
+    has: false,
+    number: 51,
+    vertical: true
+  },
+  {
+    has: false,
+    number: 52,
+    vertical: false
+  },
+  {
+    has: true,
+    number: 53,
+    vertical: true
+  },
+  {
+    has: true,
+    number: 54,
+    vertical: true
+  },
+  {
+    has: false,
+    number: 55,
+    vertical: true
+  },
+  {
+    has: false,
+    number: 56,
+    vertical: true
+  },
+  {
+    has: false,
+    number: 57,
+    vertical: true
+  },
+  {
+    has: false,
+    number: 58,
+    vertical: false
+  },
+  {
+    has: false,
+    number: 59,
+    vertical: false
+  },
+  {
+    has: true,
+    number: 60,
+    vertical: true
+  },
+  {
+    has: true,
+    number: 61,
+    vertical: true
+  },
+  {
+    has: true,
+    number: 62,
+    vertical: false
+  },
+  {
+    has: false,
+    number: 63,
+    vertical: true
+  },
+  {
+    has: false,
+    number: 64,
+    vertical: true
   },
   {
     has: false,

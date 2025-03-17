@@ -1,7 +1,7 @@
 <div class="card">
   <div class="image">
-    <img [ngSrc]="path" [alt]="item.number" placeholder [width]="item.vertical ? 100 : 200"
-      [height]="item.vertical ? 200 : 100"
+    <img [src]="path" [alt]="item.number" placeholder [width]="width"
+      [height]="height"
       [ngClass]="{ 'vertical-image': item.vertical, 'horizontal-image': !item.vertical }">
   </div>
 

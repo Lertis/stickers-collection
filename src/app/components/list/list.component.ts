@@ -1,5 +1,5 @@
 import { Component } from '@angular/core'
-import { NavigationExtras, Router } from '@angular/router'
+import { NavigationExtras, Route, Router } from '@angular/router'
 
 import { RoutePath } from '../../const'
 
@@ -9,6 +9,7 @@ import { RoutePath } from '../../const'
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent {
+  loading = true
   readonly collections: { name: string, path: RoutePath, cover: string, vertical: boolean }[] = [
     { name: 'Dragon Ball Z (yellow dot)', path: RoutePath.DRAGON_BALL_Z_YELLOW_DOT, cover: `./assets/img/${RoutePath.DRAGON_BALL_Z_YELLOW_DOT}/cover.jpg`, vertical: false },
     { name: 'Dragon Ball Z (red dot)', path: RoutePath.DRAGON_BALL_Z_RED_DOT, cover: `./assets/img/${RoutePath.DRAGON_BALL_Z_RED_DOT}/cover.jpg`, vertical: false },
@@ -24,7 +25,17 @@ export class ListComponent {
     { name: 'Jackie Chan *', path: RoutePath.JACKIE_CHAN_STAR, cover: `./assets/img/${RoutePath.JACKIE_CHAN_STAR}/cover.jpg`, vertical: true }
   ]
 
-  constructor (private readonly router: Router) { }
+  resolutionMap = new Map<RoutePath, { height: number, width: number }>()
+
+  constructor (private readonly router: Router) {
+    this.loading = true
+    this.collections.forEach(({ path, vertical }) => { this.resolutionMap.set(path, { width: vertical ? 100 : 200, height: vertical ? 200 : 100 }) })
+    this.loading = false
+  }
+
+  readonly width = (path: RoutePath): number => { return this.resolutionMap.get(path).width }
+
+  readonly height = (path: RoutePath): number => { return this.resolutionMap.get(path).width }
 
   navigate (path: RoutePath) {
     const navigationExtras: NavigationExtras = { state: { data: path } }
