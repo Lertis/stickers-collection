@@ -2890,7 +2890,7 @@ export const DRAGON_BALL_FLEER_3_BACKUP = [
   {
     has: false,
     number: 7,
-    vertical: false
+    vertical: true
   },
   {
     has: false,
@@ -2940,7 +2940,7 @@ export const DRAGON_BALL_FLEER_3_BACKUP = [
   {
     has: false,
     number: 17,
-    vertical: false
+    vertical: true
   },
   {
     has: false,
@@ -2975,12 +2975,12 @@ export const DRAGON_BALL_FLEER_3_BACKUP = [
   {
     has: false,
     number: 24,
-    vertical: false
+    vertical: true
   },
   {
     has: false,
     number: 25,
-    vertical: false
+    vertical: true
   },
   {
     has: false,
