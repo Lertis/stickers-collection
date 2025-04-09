@@ -2317,12 +2317,12 @@ export const DRAGON_BALL_FLEER_1_BACKUP = [
     vertical: true
   },
   {
-    has: false,
+    has: true,
     number: 2,
     vertical: false
   },
   {
-    has: false,
+    has: true,
     number: 3,
     vertical: false
   },
@@ -2347,7 +2347,7 @@ export const DRAGON_BALL_FLEER_1_BACKUP = [
     vertical: false
   },
   {
-    has: false,
+    has: true,
     number: 8,
     vertical: false
   },
@@ -2357,7 +2357,7 @@ export const DRAGON_BALL_FLEER_1_BACKUP = [
     vertical: false
   },
   {
-    has: false,
+    has: true,
     number: 10,
     vertical: false
   },
@@ -2372,12 +2372,12 @@ export const DRAGON_BALL_FLEER_1_BACKUP = [
     vertical: false
   },
   {
-    has: false,
+    has: true,
     number: 13,
     vertical: false
   },
   {
-    has: false,
+    has: true,
     number: 14,
     vertical: false
   },
@@ -2392,17 +2392,17 @@ export const DRAGON_BALL_FLEER_1_BACKUP = [
     vertical: false
   },
   {
-    has: false,
+    has: true,
     number: 17,
     vertical: false
   },
   {
-    has: false,
+    has: true,
     number: 18,
     vertical: true
   },
   {
-    has: false,
+    has: true,
     number: 19,
     vertical: false
   },
@@ -2417,7 +2417,7 @@ export const DRAGON_BALL_FLEER_1_BACKUP = [
     vertical: true
   },
   {
-    has: false,
+    has: true,
     number: 22,
     vertical: false
   },
@@ -2437,7 +2437,7 @@ export const DRAGON_BALL_FLEER_1_BACKUP = [
     vertical: true
   },
   {
-    has: false,
+    has: true,
     number: 26,
     vertical: false
   },
@@ -2452,12 +2452,12 @@ export const DRAGON_BALL_FLEER_1_BACKUP = [
     vertical: true
   },
   {
-    has: false,
+    has: true,
     number: 29,
     vertical: false
   },
   {
-    has: false,
+    has: true,
     number: 30,
     vertical: false
   },
@@ -2487,12 +2487,12 @@ export const DRAGON_BALL_FLEER_1_BACKUP = [
     vertical: false
   },
   {
-    has: false,
+    has: true,
     number: 36,
     vertical: true
   },
   {
-    has: false,
+    has: true,
     number: 37,
     vertical: true
   },
@@ -2502,7 +2502,7 @@ export const DRAGON_BALL_FLEER_1_BACKUP = [
     vertical: false
   },
   {
-    has: false,
+    has: true,
     number: 39,
     vertical: true
   },
@@ -2530,7 +2530,7 @@ export const DRAGON_BALL_FLEER_2_BACKUP = [
     vertical: true
   },
   {
-    has: false,
+    has: true,
     number: 4,
     vertical: false
   },
@@ -2550,7 +2550,7 @@ export const DRAGON_BALL_FLEER_2_BACKUP = [
     vertical: false
   },
   {
-    has: false,
+    has: true,
     number: 8,
     vertical: true
   },
@@ -2635,7 +2635,7 @@ export const DRAGON_BALL_FLEER_2_BACKUP = [
     vertical: false
   },
   {
-    has: false,
+    has: true,
     number: 25,
     vertical: false
   },
@@ -2645,7 +2645,7 @@ export const DRAGON_BALL_FLEER_2_BACKUP = [
     vertical: true
   },
   {
-    has: false,
+    has: true,
     number: 27,
     vertical: true
   },
@@ -2655,7 +2655,7 @@ export const DRAGON_BALL_FLEER_2_BACKUP = [
     vertical: false
   },
   {
-    has: false,
+    has: true,
     number: 29,
     vertical: false
   },
@@ -2665,7 +2665,7 @@ export const DRAGON_BALL_FLEER_2_BACKUP = [
     vertical: false
   },
   {
-    has: false,
+    has: true,
     number: 31,
     vertical: false
   },
@@ -2685,7 +2685,7 @@ export const DRAGON_BALL_FLEER_2_BACKUP = [
     vertical: true
   },
   {
-    has: false,
+    has: true,
     number: 35,
     vertical: true
   },
@@ -2695,7 +2695,7 @@ export const DRAGON_BALL_FLEER_2_BACKUP = [
     vertical: true
   },
   {
-    has: false,
+    has: true,
     number: 37,
     vertical: true
   },
@@ -2705,7 +2705,7 @@ export const DRAGON_BALL_FLEER_2_BACKUP = [
     vertical: true
   },
   {
-    has: false,
+    has: true,
     number: 39,
     vertical: true
   },
@@ -2715,12 +2715,12 @@ export const DRAGON_BALL_FLEER_2_BACKUP = [
     vertical: false
   },
   {
-    has: false,
+    has: true,
     number: 41,
     vertical: true
   },
   {
-    has: false,
+    has: true,
     number: 42,
     vertical: true
   },
@@ -2735,12 +2735,12 @@ export const DRAGON_BALL_FLEER_2_BACKUP = [
     vertical: true
   },
   {
-    has: false,
+    has: true,
     number: 45,
     vertical: true
   },
   {
-    has: false,
+    has: true,
     number: 46,
     vertical: true
   },
@@ -2750,7 +2750,7 @@ export const DRAGON_BALL_FLEER_2_BACKUP = [
     vertical: true
   },
   {
-    has: false,
+    has: true,
     number: 48,
     vertical: true
   },
@@ -2800,17 +2800,17 @@ export const DRAGON_BALL_FLEER_2_BACKUP = [
     vertical: true
   },
   {
-    has: false,
+    has: true,
     number: 58,
     vertical: false
   },
   {
-    has: false,
+    has: true,
     number: 59,
     vertical: false
   },
   {
-    has: false,
+    has: true,
     number: 60,
     vertical: false
   },
@@ -2825,12 +2825,12 @@ export const DRAGON_BALL_FLEER_2_BACKUP = [
     vertical: false
   },
   {
-    has: false,
+    has: true,
     number: 63,
     vertical: true
   },
   {
-    has: false,
+    has: true,
     number: 64,
     vertical: false
   },
