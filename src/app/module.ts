@@ -117,6 +117,7 @@ const routes: Route[] = [
         return () => {
           INIT_APP_CONFIG.forEach(({ path, coll }) => {
             c.key = path
+            c.clear()
             c.set(coll)
           })
         }
