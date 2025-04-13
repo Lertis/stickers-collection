@@ -4,3 +4,20 @@ body {
   height: calc(100vh - 30px);
   background: #ebebeb;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, 'Helvetica Neue', sans-serif; }
+
+.spinner {
+  display: grid;
+  place-items: center;
+  margin: 3em;
+}
+
+.full-h {
+  height: 100%;
+}
+
+.full-w {
+  width: 100%;
+}

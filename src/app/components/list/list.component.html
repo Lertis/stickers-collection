@@ -1,10 +1,16 @@
-<div class="container">
-  <ng-container *ngIf="!loading">
-    <div class="card" *ngFor="let item of collections" (click)="navigate(item.path)">
+<ng-template [ngIf]="loading">
+  <div class="full-h spinner">
+    <mat-spinner [diameter]="125"></mat-spinner>
+  </div>
+</ng-template>
+
+<ng-template [ngIf]="!loading">
+  <div class="container">
+    <div class="card" *ngFor="let item of collections" (click)="navigate(item.path, item.collection)">
       <img [ngSrc]="item.cover" [alt]="item.cover" placeholder [width]="width(item.path)"
         [height]="height(item.path)"
         [ngClass]="{ 'vertical-image': item.vertical, 'horizontal-image': !item.vertical }">
       <div class="label"> {{ item.name }}</div>
     </div>
-  </ng-container>
-</div>
+  </div>
+</ng-template>

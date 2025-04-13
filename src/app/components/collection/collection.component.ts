@@ -5,7 +5,7 @@ import { BehaviorSubject } from 'rxjs'
 import { CollectionStorageService } from '../../services'
 import { CollectionItem } from '../../model'
 import { RoutePath } from '../../const'
-import { Router } from '@angular/router'
+import { Route, Router } from '@angular/router'
 
 @Component({
   selector: 'stk-collection',
@@ -14,12 +14,9 @@ import { Router } from '@angular/router'
 })
 export class CollectionComponent implements OnInit {
   @Input({ required: true }) key: RoutePath
-
-  list$: BehaviorSubject<CollectionItem[]> = new BehaviorSubject<CollectionItem[]>([])
+  @Input({ required: true }) collection: CollectionItem[] = []
 
   filterState: { has: boolean, absent: boolean } = { has: false, absent: false }
-
-  private list: CollectionItem[] = []
 
   constructor (
     private readonly storage: CollectionStorageService,
@@ -32,15 +29,15 @@ export class CollectionComponent implements OnInit {
     this.setFilters()
   }
 
-  get has (): number { return this.list.filter(({ has }) => has).length }
+  get has (): number { return this.collection.filter(({ has }) => has).length }
 
-  get absent (): number { return this.list.length - this.has }
+  get absent (): number { return this.collection.length - this.has }
 
   readonly back = (): void => { this.router.navigate(['/list']) }
 
   readonly trackBy = (i: number): number => i
 
-  readonly change = (e: { has: boolean, number: number }) => {
+  readonly change = (e: { path: RoutePath, has: boolean, n: number }) => {
     this.storage.change({ ...e })
     this.updateList()
     this.setFilters()
@@ -49,14 +46,14 @@ export class CollectionComponent implements OnInit {
   readonly setFilters = (): void => {
     const { has, absent } = { ...this.filterState }
     if (Object.values({ has, absent }).every(v => !v)) {
-      this.list$.next(this.list)
+      // this.list$.next(this.list)
       return
     }
     let list: CollectionItem[] = []
-    if (has) list = list.concat(this.list.filter(({ has }) => has))
-    if (absent) list = list.concat(this.list.filter(({ has }) => !has))
+    if (has) list = list.concat(this.collection.filter(({ has }) => has))
+    if (absent) list = list.concat(this.collection.filter(({ has }) => !has))
     list.sort((a, b) => a.number - b.number)
-    this.list$.next(list)
+    // this.list$.next(list)
   }
 
   readonly hasFilter = (): void => {
@@ -72,9 +69,11 @@ export class CollectionComponent implements OnInit {
   }
 
   readonly updateList = (): void => {
-    this.list = this.storage.get()
-    this.list$.next(this.list)
+    // this.collection = this.storage.get()
+    // this.list$.next(this.list)
   }
 
-  private readonly initStorage = (): void => { this.storage.key = this.key }
+  private readonly initStorage = (): void => {
+    // this.storage.key = this.key
+  }
 }

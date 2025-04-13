@@ -3,7 +3,9 @@ import { BrowserModule } from '@angular/platform-browser'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { Route, RouterModule } from '@angular/router'
 import { NgOptimizedImage } from '@angular/common'
-
+import { HttpClientModule } from '@angular/common/http'
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
+import { ServiceWorkerModule } from '@angular/service-worker'
 import { NgSelectModule } from '@ng-select/ng-select'
 
 import { RootComponent } from './root'
@@ -12,9 +14,8 @@ import { CollectionOutletComponent } from './components/collection-outlet/collec
 import { CollectionComponent } from './components/collection/collection.component'
 import { ItemCardComponent } from './components/item-card/item-card'
 
-import { INIT_APP_CONFIG, RoutePath } from './const'
-import { CollectionStorageService } from './services';
-import { ServiceWorkerModule } from '@angular/service-worker'
+import { CollectionStorageService, FetchCollectionsService } from './services'
+import { RoutePath } from './const'
 
 const routes: Route[] = [
   {
@@ -99,10 +100,12 @@ const routes: Route[] = [
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot([...routes]),
+    RouterModule.forRoot([...routes], { scrollPositionRestoration: 'top' }),
+    HttpClientModule,
     ReactiveFormsModule,
     NgOptimizedImage,
     NgSelectModule,
+    MatProgressSpinnerModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: !isDevMode(),
       // Register the ServiceWorker as soon as the application is stable
@@ -113,16 +116,8 @@ const routes: Route[] = [
   providers: [
     {
       provide: APP_INITIALIZER,
-      useFactory: (c: CollectionStorageService): () => void => {
-        return () => {
-          INIT_APP_CONFIG.forEach(({ path, coll }) => {
-            c.key = path
-            c.clear()
-            c.set(coll)
-          })
-        }
-      },
-      deps: [CollectionStorageService],
+      useFactory: (f: FetchCollectionsService): () => void => () => f.load(),
+      deps: [FetchCollectionsService, CollectionStorageService],
       multi: true
     },
   ],

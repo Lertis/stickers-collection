@@ -3,6 +3,7 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, in
 import { CollectionItem } from '../../model'
 import { RoutePath } from '../../const'
 import { env } from '../../env/dev'
+import { Route } from '@angular/router'
 
 @Component({
   selector: 'stk-item-card',
@@ -14,7 +15,7 @@ export class ItemCardComponent implements OnChanges {
   @Input({ required: true }) item: CollectionItem
   @Input({ required: true }) key: RoutePath
 
-  @Output() itemChange = new EventEmitter<{ has: boolean, number: number }>()
+  @Output() itemChange = new EventEmitter<{ path: RoutePath, has: boolean, n: number }>()
 
   visible = false
   path: string
@@ -40,7 +41,10 @@ export class ItemCardComponent implements OnChanges {
     this.cdr.markForCheck()
   }
 
-  change = (e: { has: boolean }) => this.itemChange.emit({ ...e, number: this.item.number })
+  change = (e: { has: boolean }) => {
+    console.log(e)
+    this.itemChange.emit({ ...e, n: this.item.number, path: this.key })
+  }
 
   private readonly createPath = (n: number): string => `assets/img/${this.key}/${n}.jpg`
 }

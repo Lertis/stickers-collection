@@ -1,43 +1,54 @@
 import { Injectable } from '@angular/core'
+import { cloneDeep } from 'lodash'
+
 import { CollectionItem } from '../model'
+import { RoutePath } from '../const'
 
 @Injectable({ providedIn: 'root' })
 export class CollectionStorageService {
-  private _k: string
+  collections: { name: string, path: RoutePath, cover: string, vertical: boolean, collection?: CollectionItem[] }[] = []
 
-  set key (v: string) {
-    this._k = v
+  private collectionsPerKey: Record<RoutePath, CollectionItem[]> = {
+    [RoutePath.DIGIMONS]: [],
+    [RoutePath.DIGIMONS_SHINY]: [],
+    [RoutePath.DRAGON_BALL_BLACK_DOT]: [],
+    [RoutePath.DRAGON_BALL_FLEER_1]: [],
+    [RoutePath.DRAGON_BALL_FLEER_2]: [],
+    [RoutePath.DRAGON_BALL_FLEER_3]: [],
+    [RoutePath.DRAGON_BALL_NO_CIRCLE]: [],
+    [RoutePath.DRAGON_BALL_Z_RED_DOT]: [],
+    [RoutePath.DRAGON_BALL_Z_YELLOW_DOT]: [],
+    [RoutePath.JACKIE_CHAN]: [],
+    [RoutePath.JACKIE_CHAN_STAR]: [],
+    [RoutePath.LION_KING]: [],
+    [RoutePath.LIST]: []
   }
 
-  get key (): string {
-    return this._k
+  private readonly key = 'collections'
+
+  init (collections: { name: string, path: RoutePath, cover: string, vertical: boolean, collection?: CollectionItem[] }[]) {
+    this.collections = cloneDeep(collections)
+    this.collections.forEach(({ path, collection }) => { this.setCollectionToMap(path, collection) })
+    this.setLocalStorage()
   }
 
-  get (): CollectionItem[] {
-    return JSON.parse(localStorage.getItem(this.key))
+  collection (key: RoutePath): CollectionItem[] {
+    return this.collectionsPerKey[key]
   }
 
-  set (collection: CollectionItem[]): void {
-    localStorage.setItem(this.key, JSON.stringify(collection))
+  change = ({ path, n, has }: { path: RoutePath, n: number, has: boolean }) => {
+    const collection = this.collection(path)
+    const i = collection.findIndex(({ number }) => number === n)
+    collection[i].has = has
+    this.setCollectionToMap(path, collection)
+    this.setLocalStorage()
   }
 
-  clear (): void {
-    localStorage.removeItem(this.key)
+  private setLocalStorage (): void {
+    localStorage.setItem(this.key, JSON.stringify(this.collectionsPerKey))
   }
 
-  change = ({ number, has }: { number: number, has: boolean }) => {
-    const all = this.get()
-    const i = this.index(number)
-    all[i].has = has
-    this.set(all)
+  private setCollectionToMap (path: RoutePath, c: CollectionItem[]): void {
+    this.collectionsPerKey = { ...this.collectionsPerKey, [path]: c }
   }
-
-  count (n: number, v: number) {
-    const all = this.get()
-    const i = this.index(n)
-    all[i].number = v
-    this.set(all)
-  }
-
-  private index = (n: number) => this.get().findIndex(({ number }) => number === n)
 }
