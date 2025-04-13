@@ -182,7 +182,7 @@
   {
     "has": true,
     "number": 37,
-    "vertical": true
+    "vertical": false
   },
   {
     "has": false,
