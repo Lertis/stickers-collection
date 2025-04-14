@@ -12,7 +12,7 @@
       <div class="label"> {{ item.name }} <mat-progress-spinner [diameter]="16" [mode]="'determinate'"
           [value]="finishMap.get(item.path)" [ngClass]="{
         'low': finishMap.get(item.path) <= 20,
-        'medium': finishMap.get(item.path) > 20 || finishMap.get(item.path) < 90,
+        'medium': finishMap.get(item.path) > 20 && finishMap.get(item.path) < 90,
         'hight': finishMap.get(item.path) >= 90
         }">
         </mat-progress-spinner></div>
