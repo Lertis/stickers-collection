@@ -11,6 +11,13 @@
     place-items: center;
     min-height: 15vh;
     padding: 15px 0;
+    gap: 10px;
+
+    .label {
+      display: flex;
+      gap: 5px;
+      align-items: center;
+    }
 
     .vertical-image {
       width: 200px;
@@ -48,5 +55,19 @@
 @media screen and (max-width: 510px) {
   .container {
     grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+:host {
+  .mat-mdc-progress-spinner {
+    &.low {
+      --mdc-circular-progress-active-indicator-color: #dc6161;
+    }
+    &.medium {
+      --mdc-circular-progress-active-indicator-color: #e2a533;
+    }
+    &.hight {
+      --mdc-circular-progress-active-indicator-color: #1a990c;
+    }
   }
 }

@@ -19,6 +19,7 @@ export class ListComponent {
   collections: { name: string, path: RoutePath, cover: string, vertical: boolean, collection?: CollectionItem[] }[] = []
 
   resolutionMap = new Map<RoutePath, { height: number, width: number }>()
+  finishMap = new Map<RoutePath, number>()
 
   constructor (
     private readonly router: Router,
@@ -38,7 +39,15 @@ export class ListComponent {
 
   private init (): void {
     this.collections = cloneDeep(this.collectionStorage.collections)
-    this.collections.forEach(({ path, vertical }) => { this.resolutionMap.set(path, { width: vertical ? 100 : 200, height: vertical ? 200 : 100 }) })
+    this.collections.forEach(({ path, vertical, collection }) => {
+      this.resolutionMap.set(path, { width: vertical ? 100 : 200, height: vertical ? 200 : 100 })
+      this.finishMap.set(path, this.progress(collection))
+   })
     setTimeout(() => this.loading = false, randomFromTo(1, 2))
+  }
+
+  private progress (collection: CollectionItem[]): number {
+    const has = collection.reduce((acc, v) => v.has ? acc + 1 : acc, 0)
+    return (has / collection.length) * 100
   }
 }
