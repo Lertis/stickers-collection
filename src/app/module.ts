@@ -6,6 +6,7 @@ import { NgOptimizedImage } from '@angular/common'
 import { HttpClientModule } from '@angular/common/http'
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
 import { ServiceWorkerModule } from '@angular/service-worker'
+import { NgSelectModule } from '@ng-select/ng-select'
 
 import { RootComponent } from './root'
 import { ListComponent } from './components/list/list.component'
@@ -103,6 +104,7 @@ const routes: Route[] = [
     HttpClientModule,
     ReactiveFormsModule,
     NgOptimizedImage,
+    NgSelectModule,
     MatProgressSpinnerModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: !isDevMode(),

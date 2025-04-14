@@ -1,6 +1,7 @@
 <div class="card">
   <div class="image">
-    <img [src]="path" [alt]="item.number" placeholder [width]="width" [height]="height"
+    <img [src]="path" [alt]="item.number" placeholder [width]="width"
+      [height]="height"
       [ngClass]="{ 'vertical-image': item.vertical, 'horizontal-image': !item.vertical }">
   </div>
 
@@ -13,10 +14,18 @@
         </div>
       </ng-container>
       <ng-template #selection>
-        <div class="readable">
-          <div class="has" [ngClass]="{ 'active': item.has, 'inactive': !item.has }" (click)="change({ has: true })">✅</div>
-          <div class="absent" [ngClass]="{ 'active': !item.has, 'inactive': item.has}" (click)="change({ has: false })">❌</div>
-        </div>
+        <ng-select appendTo="body" [items]="items" [multiple]="false" [closeOnSelect]="true" [hideSelected]="true"
+          [searchable]="false" [clearable]="false" [(ngModel)]="selected" placeholder="Статус"
+          (change)="change($event)">
+          <ng-template ng-label-tmp let-item="item">
+            <span *ngIf="item.has">✅</span>
+            <span *ngIf="!item.has">❌</span>
+          </ng-template>
+          <ng-template ng-option-tmp let-item="item" let-index="index">
+            <span *ngIf="item.has">✅</span>
+            <span *ngIf="!item.has">❌</span>
+          </ng-template>
+        </ng-select>
       </ng-template>
     </div>
   </div>
