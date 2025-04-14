@@ -11,7 +11,11 @@
   padding: 10px;
   text-align: center;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+  &:hover {
+    transform: scale(1.05);
+    transition-duration: 500ms;
+  }
 }
 
 .image {
@@ -42,5 +46,36 @@
   align-items: center;
   padding-top: 5px;
   border-top: 1px solid #ddd;
+  .readable {
+    display: flex;
+    gap: 20px;
+    .has {
+      border: 1px dotted #00d26a;
+      padding: 5px 10px;
+      border-radius: 5px;
+      &.active {
+        border: 1px solid #00d26a;
+      }
+      &.inactive {
+        opacity: 0.7;
+      }
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    .absent {
+      border: 1px dotted #f92f60;
+      padding: 5px 10px;
+      border-radius: 5px;
+      &.active {
+        border: 1px solid #f92f60;
+      }
+      &.inactive {
+        opacity: 0.7;
+      }
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
 }
-
