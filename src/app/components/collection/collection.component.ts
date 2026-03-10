@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core'
-import { Router } from '@angular/router'
+import { Router, ActivatedRoute } from '@angular/router'
 
 import { BehaviorSubject } from 'rxjs'
 
@@ -22,11 +22,13 @@ export class CollectionComponent implements OnInit {
 
   constructor (
     private readonly storage: CollectionStorageService,
-    private readonly router: Router
+    private readonly router: Router,
+    private readonly route: ActivatedRoute
   ) { }
 
   ngOnInit (): void {
     this.initProps()
+    this.initFiltersFromQuery()
     this.setFilters()
   }
 
@@ -60,13 +62,41 @@ export class CollectionComponent implements OnInit {
   readonly hasFilter = (): void => {
     if (this.has <= 0) return
     this.filterState = { ...this.filterState, has: !this.filterState.has }
+    this.updateQueryParams()
     this.setFilters()
   }
 
   readonly absentFilter = (): void => {
     if (this.absent <= 0) return
     this.filterState = { ...this.filterState, absent: !this.filterState.absent }
+    this.updateQueryParams()
     this.setFilters()
+  }
+
+  private readonly initFiltersFromQuery = (): void => {
+    const queryParams = this.route.snapshot.queryParams as { has: 'true' | 'false' }
+    const hasParam = queryParams.has
+    if (hasParam === 'true') {
+      this.filterState = { has: true, absent: false }
+    } else if (hasParam === 'false') {
+      this.filterState = { has: false, absent: true }
+    } else {
+      this.filterState = { has: false, absent: false }
+    }
+  }
+
+  private readonly updateQueryParams = (): void => {
+    const { has, absent } = this.filterState
+
+    if (has && absent) {
+      this.router.navigate([], { queryParams: {}, queryParamsHandling: '' })
+    } else if (has) {
+      this.router.navigate([], { queryParams: { has: true }, queryParamsHandling: 'merge' })
+    } else if (absent) {
+      this.router.navigate([], { queryParams: { has: false }, queryParamsHandling: 'merge' })
+    } else {
+      this.router.navigate([], { queryParams: {}, queryParamsHandling: 'merge' })
+    }
   }
 
   private readonly initProps = (): void => this.list$.next(this.collection)

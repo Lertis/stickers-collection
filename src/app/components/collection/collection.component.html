@@ -5,11 +5,18 @@
     </div>
 
     <div class="statistic">
-      <div class="has" [ngClass]="{ 'has__active': filterState.has, 'has__inactive': has <= 0 }" (click)="hasFilter()">
-        ✅:
-        {{ has }}</div>
-      <div class="absent" [ngClass]="{ 'absent__active': filterState.absent, 'absent__inactive': absent <= 0 }"
-        (click)="absentFilter()">❌: {{ absent }}
+      <div
+        class="has"
+        [ngClass]="{ 'has__active': filterState.has, 'has__inactive': has <= 0 }"
+        (click)="hasFilter()"
+      >
+        ✅: {{ has }}
+      </div>
+      <div
+        class="absent"
+        [ngClass]="{ 'absent__active': filterState.absent, 'absent__inactive': absent <= 0 }"
+        (click)="absentFilter()">
+        ❌: {{ absent }}
       </div>
     </div>
   </div>
