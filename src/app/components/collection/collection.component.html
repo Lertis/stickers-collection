@@ -1,4 +1,4 @@
-<ng-container *ngIf="collection?.length">
+@if (collection()?.length) {
   <div class="header">
     <div class="back" (click)="back()">
       🔙
@@ -7,14 +7,14 @@
     <div class="statistic">
       <div
         class="has"
-        [ngClass]="{ 'has__active': filterState.has, 'has__inactive': has <= 0 }"
+        [ngClass]="{ 'has__active': filterState().has, 'has__inactive': has <= 0 }"
         (click)="hasFilter()"
       >
         ✅: {{ has }}
       </div>
       <div
         class="absent"
-        [ngClass]="{ 'absent__active': filterState.absent, 'absent__inactive': absent <= 0 }"
+        [ngClass]="{ 'absent__active': filterState().absent, 'absent__inactive': absent <= 0 }"
         (click)="absentFilter()">
         ❌: {{ absent }}
       </div>
@@ -22,7 +22,8 @@
   </div>
 
   <div class="list">
-    <stk-item-card *ngFor="let item of list$ | async; trackBy:trackBy" [item]="item" [key]="key"
-      (itemChange)="change($event)"></stk-item-card>
+    @for (item of list(); track $index) {
+      <stk-item-card [key]="key()" [item]="item" (itemChange)="change($event)"></stk-item-card>
+    }
   </div>
-</ng-container>
+}

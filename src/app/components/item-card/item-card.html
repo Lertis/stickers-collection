@@ -1,27 +1,37 @@
 <div class="card">
   <div class="image">
-    <img [src]="path" [alt]="item.number" placeholder [width]="width" [height]="height"
-      [ngClass]="{ 'vertical-image': item.vertical, 'horizontal-image': !item.vertical }"
+    <img
+      placeholder
+      [src]="path()"
+      [alt]="item().number"
+      [width]="width()"
+      [height]="height()"
+      [ngClass]="{
+        'vertical-image': isVertical(),
+        'horizontal-image': !isVertical()
+      }"
     >
     <div class="number">
-      № {{ item.number }}
+      № {{ item().number }}
     </div>
   </div>
 
   <div class="details">
     <div class="status">
-      <ng-container *ngIf="readonly; else selection">
+      @if (isReadonly()) {
         <div class="readonly">
-          <span *ngIf="item.has">✅</span>
-          <span *ngIf="!item.has">❌</span>
+          @if (itemHas()) {
+            <span>✅</span>
+          } @else {
+            <span>❌</span>
+          }
         </div>
-      </ng-container>
-      <ng-template #selection>
+      } @else {
         <div class="readable">
-          <div class="has" [ngClass]="{ 'active': item.has, 'inactive': !item.has }" (click)="change({ has: true })">✅</div>
-          <div class="absent" [ngClass]="{ 'active': !item.has, 'inactive': item.has}" (click)="change({ has: false })">❌</div>
+          <div class="has" [ngClass]="{ 'active': itemHas(), 'inactive': !itemHas() }" (click)="change({ has: true })">✅</div>
+          <div class="absent" [ngClass]="{ 'active': !itemHas(), 'inactive': itemHas()}" (click)="change({ has: false })">❌</div>
         </div>
-      </ng-template>
+      }
     </div>
   </div>
 </div>

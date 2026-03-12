@@ -1,49 +1,50 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, inject, Input, OnChanges, Output, SimpleChange } from '@angular/core'
+import { ChangeDetectionStrategy, Component, computed, input, OnChanges, output, signal, SimpleChange } from '@angular/core'
+import { CommonModule } from '@angular/common'
 
 import { CollectionItem } from '../../model'
 import { RoutePath } from '../../const'
 import { env } from '../../env/dev'
 
 @Component({
+  standalone: true,
   selector: 'stk-item-card',
   templateUrl: './item-card.html',
   styleUrls: ['./item-card.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [
+    CommonModule
+  ]
 })
 export class ItemCardComponent implements OnChanges {
-  @Input({ required: true }) item: CollectionItem
-  @Input({ required: true }) key: RoutePath
+  readonly item = input.required<CollectionItem>()
+  readonly key = input.required<RoutePath>()
 
-  @Output() itemChange = new EventEmitter<{ path: RoutePath, has: boolean, n: number }>()
+  readonly itemChange = output<{ path: RoutePath, has: boolean, n: number }>()
 
-  visible = false
-  path: string
-  width: number
-  height: number
-  readonly = env.production
+  readonly path = signal<string>(null)
+  readonly width = signal<number>(null)
+  readonly height = signal<number>(null)
+  readonly isReadonly = signal<boolean>(env.production)
+
+  readonly itemHas = computed(() => this.item().has)
+  readonly isVertical = computed(() => this.item().vertical)
 
   items: Array<{ has: boolean }> = [
     { has: true },
     { has: false }
   ]
 
-  private readonly cdr: ChangeDetectorRef = inject(ChangeDetectorRef)
-
   ngOnChanges (changes: { item: SimpleChange }): void {
-    console.log(this.item)
-    const { number, has, vertical } = { ...changes?.item?.currentValue as CollectionItem }
-    this.path = this.createPath(number)
-    this.width = vertical ? 100 : 200
-    this.height = vertical ? 200 : 100
-    this.visible = true
-    this.cdr.markForCheck()
+    const { number, vertical } = { ...changes?.item?.currentValue as CollectionItem }
+    this.path.set(this.createPath({ key: this.key(), number }))
+    this.width.set(vertical ? 100 : 200)
+    this.height.set(vertical ? 200 : 100)
   }
 
-  change = ({has}: { has: boolean }) => {
-    if (has && this.item.has) return
-    if (!has && !this.item.has) return
-    this.itemChange.emit({ has, n: this.item.number, path: this.key })
+  change = ({ has }: { has: boolean }) => {
+    if ((has && this.item().has) || (!has && !this.item().has)) return
+    this.itemChange.emit({ has, n: this.item().number, path: this.key() })
   }
 
-  private readonly createPath = (n: number): string => `assets/img/${this.key}/${n}.jpg`
+  private readonly createPath = ({ key, number }: { key: RoutePath, number: number }): string => `assets/img/${key}/${number}.jpg`
 }

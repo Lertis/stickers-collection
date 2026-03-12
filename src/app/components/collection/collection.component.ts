@@ -1,24 +1,29 @@
-import { Component, Input, OnInit } from '@angular/core'
-import { Router, ActivatedRoute } from '@angular/router'
+import { ChangeDetectionStrategy, Component, input, OnInit, signal } from '@angular/core'
+import { ActivatedRoute, Router } from '@angular/router'
+import { CommonModule } from '@angular/common'
 
-import { BehaviorSubject } from 'rxjs'
-
-import { CollectionStorageService } from '../../services'
-import { CollectionItem } from '../../model'
 import { RoutePath } from '../../const'
+import { CollectionItem } from '../../model'
+import { CollectionStorageService } from '../../services'
+import { ItemCardComponent } from '../item-card/item-card'
 
 @Component({
+  standalone: true,
   selector: 'stk-collection',
   templateUrl: './collection.component.html',
-  styleUrls: ['./collection.component.scss']
+  styleUrls: ['./collection.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [
+    CommonModule,
+    ItemCardComponent
+  ]
 })
 export class CollectionComponent implements OnInit {
-  @Input({ required: true }) key: RoutePath
-  @Input({ required: true }) collection: CollectionItem[] = []
+  readonly key = input.required<RoutePath>()
+  readonly collection = input.required<CollectionItem[]>()
 
-  list$: BehaviorSubject<CollectionItem[]> = new BehaviorSubject<CollectionItem[]>([])
-
-  filterState: { has: boolean, absent: boolean } = { has: false, absent: false }
+  readonly list = signal<CollectionItem[]>([])
+  readonly filterState = signal<{ has: boolean, absent: boolean }>({ has: false, absent: false })
 
   constructor (
     private readonly storage: CollectionStorageService,
@@ -32,9 +37,9 @@ export class CollectionComponent implements OnInit {
     this.setFilters()
   }
 
-  get has (): number { return this.collection.filter(({ has }) => has).length }
+  get has (): number { return this.collection().filter(({ has }) => has).length }
 
-  get absent (): number { return this.collection.length - this.has }
+  get absent (): number { return this.collection().length - this.has }
 
   readonly back = (): void => { this.router.navigate([`/${RoutePath.LIST}`]) }
 
@@ -46,29 +51,31 @@ export class CollectionComponent implements OnInit {
   }
 
   readonly setFilters = (): void => {
-    const { has, absent } = { ...this.filterState }
+    const { has, absent } = { ...this.filterState() }
     if (Object.values({ has, absent }).every(v => !v)) {
-      this.list$.next(this.collection)
+      this.list.set(this.collection())
       return
     }
 
     let list: CollectionItem[] = []
-    if (has) list = list.concat(this.collection.filter(({ has }) => has))
-    if (absent) list = list.concat(this.collection.filter(({ has }) => !has))
+    if (has) list = list.concat(this.collection().filter(({ has }) => has))
+    if (absent) list = list.concat(this.collection().filter(({ has }) => !has))
     list.sort((a, b) => a.number - b.number)
-    this.list$.next(list)
+    this.list.set(list)
   }
 
   readonly hasFilter = (): void => {
     if (this.has <= 0) return
-    this.filterState = { ...this.filterState, has: !this.filterState.has }
+    const filterState = this.filterState()
+    this.filterState.set({ ...filterState, has: !filterState.has })
     this.updateQueryParams()
     this.setFilters()
   }
 
   readonly absentFilter = (): void => {
     if (this.absent <= 0) return
-    this.filterState = { ...this.filterState, absent: !this.filterState.absent }
+    const filterState = this.filterState()
+    this.filterState.set({ ...filterState, absent: !filterState.absent })
     this.updateQueryParams()
     this.setFilters()
   }
@@ -77,16 +84,16 @@ export class CollectionComponent implements OnInit {
     const queryParams = this.route.snapshot.queryParams as { has: 'true' | 'false' }
     const hasParam = queryParams.has
     if (hasParam === 'true') {
-      this.filterState = { has: true, absent: false }
+      this.filterState.set({ has: true, absent: false })
     } else if (hasParam === 'false') {
-      this.filterState = { has: false, absent: true }
+      this.filterState.set({ has: false, absent: true })
     } else {
-      this.filterState = { has: false, absent: false }
+      this.filterState.set({ has: false, absent: false })
     }
   }
 
   private readonly updateQueryParams = (): void => {
-    const { has, absent } = this.filterState
+    const { has, absent } = this.filterState()
 
     if (has && absent) {
       this.router.navigate([], { queryParams: {}, queryParamsHandling: '' })
@@ -99,5 +106,5 @@ export class CollectionComponent implements OnInit {
     }
   }
 
-  private readonly initProps = (): void => this.list$.next(this.collection)
+  private readonly initProps = (): void => this.list.set(this.collection())
 }

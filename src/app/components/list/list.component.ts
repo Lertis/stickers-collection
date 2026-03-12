@@ -1,4 +1,6 @@
-import { Component } from '@angular/core'
+import { CommonModule } from '@angular/common'
+import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core'
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
 import { NavigationExtras, Router } from '@angular/router'
 
 import { cloneDeep } from 'lodash'
@@ -9,22 +11,27 @@ import { CollectionStorageService } from '../../services'
 import { randomFromTo } from '../../utils'
 
 @Component({
+  standalone: true,
   selector: 'stk-list',
   templateUrl: './list.component.html',
-  styleUrls: ['./list.component.scss']
+  styleUrls: ['./list.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [
+    CommonModule,
+    MatProgressSpinnerModule
+  ]
 })
 export class ListComponent {
-  loading = true
+  private readonly router: Router = inject(Router)
+  private readonly collectionStorage: CollectionStorageService = inject(CollectionStorageService)
 
-  collections: { name: string, path: RoutePath, cover: string, vertical: boolean, collection?: CollectionItem[] }[] = []
+  readonly loading = signal<boolean>(true)
+  readonly collection = signal<{ name: string, path: RoutePath, cover: string, vertical: boolean, collection?: CollectionItem[] }[]>([])
 
   resolutionMap = new Map<RoutePath, { height: number, width: number }>()
   finishMap = new Map<RoutePath, number>()
 
-  constructor (
-    private readonly router: Router,
-    readonly collectionStorage: CollectionStorageService
-  ) {
+  constructor () {
     this.init()
   }
 
@@ -38,12 +45,13 @@ export class ListComponent {
   }
 
   private init (): void {
-    this.collections = cloneDeep(this.collectionStorage.collections)
-    this.collections.forEach(({ path, vertical, collection }) => {
+    const clone = cloneDeep(this.collectionStorage.collections)
+    clone.forEach(({ path, vertical, collection }) => {
       this.resolutionMap.set(path, { width: vertical ? 100 : 200, height: vertical ? 200 : 100 })
       this.finishMap.set(path, this.progress(collection))
-   })
-    setTimeout(() => this.loading = false, randomFromTo(1, 2))
+    })
+    this.collection.set(clone)
+    setTimeout(() => this.loading.set(false), randomFromTo(1, 2))
   }
 
   private progress (collection: CollectionItem[]): number {
