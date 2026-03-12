@@ -19,6 +19,7 @@
 }
 
 .image {
+  position: relative;
   max-height: 200px;
   height: 200px;
   display: grid;
@@ -37,6 +38,13 @@
     height: 100px;
     max-height: 100px;
     filter: brightness(0.75);
+  }
+
+  .number {
+    position: absolute;
+    top: 0;
+    left: 5px;
+    font-weight: bold;
   }
 }
 

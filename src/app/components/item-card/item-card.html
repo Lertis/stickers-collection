@@ -1,7 +1,11 @@
 <div class="card">
   <div class="image">
     <img [src]="path" [alt]="item.number" placeholder [width]="width" [height]="height"
-      [ngClass]="{ 'vertical-image': item.vertical, 'horizontal-image': !item.vertical }">
+      [ngClass]="{ 'vertical-image': item.vertical, 'horizontal-image': !item.vertical }"
+    >
+    <div class="number">
+      № {{ item.number }}
+    </div>
   </div>
 
   <div class="details">

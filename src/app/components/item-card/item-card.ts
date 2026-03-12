@@ -30,6 +30,7 @@ export class ItemCardComponent implements OnChanges {
   private readonly cdr: ChangeDetectorRef = inject(ChangeDetectorRef)
 
   ngOnChanges (changes: { item: SimpleChange }): void {
+    console.log(this.item)
     const { number, has, vertical } = { ...changes?.item?.currentValue as CollectionItem }
     this.path = this.createPath(number)
     this.width = vertical ? 100 : 200
