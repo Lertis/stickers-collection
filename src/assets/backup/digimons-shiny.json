@@ -280,7 +280,7 @@
     "vertical": true
   },
   {
-    "has": false,
+    "has": true,
     "number": 57,
     "vertical": true
   },
@@ -350,7 +350,7 @@
     "vertical": true
   },
   {
-    "has": false,
+    "has": true,
     "number": 71,
     "vertical": true
   },
