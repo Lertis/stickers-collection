@@ -1,5 +1,5 @@
 import { provideHttpClient } from '@angular/common/http'
-import { ApplicationConfig, inject, isDevMode, provideAppInitializer, provideBrowserGlobalErrorListeners } from '@angular/core'
+import { ApplicationConfig, inject, isDevMode, provideAppInitializer, provideBrowserGlobalErrorListeners, provideZonelessChangeDetection } from '@angular/core'
 import { provideRouter, Route, withComponentInputBinding } from '@angular/router'
 import { provideServiceWorker } from '@angular/service-worker'
 
@@ -85,6 +85,7 @@ const intializeAppAccessConfig = async (): Promise<unknown> => {
 
 export const appConfig: ApplicationConfig = {
   providers: [
+    provideZonelessChangeDetection(),
     provideBrowserGlobalErrorListeners(),
     provideRouter(routes, withComponentInputBinding()),
     provideHttpClient(),
