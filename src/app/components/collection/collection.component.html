@@ -7,16 +7,22 @@
     <div class="statistic">
       <div
         class="has"
-        [ngClass]="{ 'has__active': filterState().has, 'has__inactive': has <= 0 }"
+        [ngClass]="{
+          'has__active': filterState().has,
+          'has__inactive': hasAmount() <= 0
+        }"
         (click)="hasFilter()"
       >
-        ✅: {{ has }}
+        ✅: {{ hasAmount() }}
       </div>
       <div
         class="absent"
-        [ngClass]="{ 'absent__active': filterState().absent, 'absent__inactive': absent <= 0 }"
+        [ngClass]="{
+          'absent__active': filterState().absent,
+          'absent__inactive': absentAmount() <= 0
+        }"
         (click)="absentFilter()">
-        ❌: {{ absent }}
+        ❌: {{ absentAmount() }}
       </div>
     </div>
   </div>

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, input, OnChanges, output, signal, SimpleChange } from '@angular/core'
+import { ChangeDetectionStrategy, Component, computed, effect, input, output, signal } from '@angular/core'
 import { CommonModule } from '@angular/common'
 
 import { CollectionItem } from '../../model'
@@ -15,7 +15,7 @@ import { env } from '../../env/dev'
     CommonModule
   ]
 })
-export class ItemCardComponent implements OnChanges {
+export class ItemCardComponent {
   readonly item = input.required<CollectionItem>()
   readonly key = input.required<RoutePath>()
 
@@ -29,19 +29,22 @@ export class ItemCardComponent implements OnChanges {
   readonly itemHas = computed(() => this.item().has)
   readonly isVertical = computed(() => this.item().vertical)
 
-  items: Array<{ has: boolean }> = [
+  readonly items: Array<{ has: boolean }> = [
     { has: true },
     { has: false }
   ]
 
-  ngOnChanges (changes: { item: SimpleChange }): void {
-    const { number, vertical } = { ...changes?.item?.currentValue as CollectionItem }
-    this.path.set(this.createPath({ key: this.key(), number }))
-    this.width.set(vertical ? 100 : 200)
-    this.height.set(vertical ? 200 : 100)
+  constructor () {
+    effect(() => {
+      const item = this.item()
+      const { number, vertical } = { ...item }
+      this.path.set(this.createPath({ key: this.key(), number }))
+      this.width.set(vertical ? 100 : 200)
+      this.height.set(vertical ? 200 : 100)
+    })
   }
 
-  change = ({ has }: { has: boolean }) => {
+  readonly change = ({ has }: { has: boolean }): void => {
     if ((has && this.item().has) || (!has && !this.item().has)) return
     this.itemChange.emit({ has, n: this.item().number, path: this.key() })
   }

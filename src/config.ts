@@ -4,7 +4,7 @@ import { provideRouter, Route, withComponentInputBinding } from '@angular/router
 import { provideServiceWorker } from '@angular/service-worker'
 
 import { RoutePath } from './app/const'
-import { FetchCollectionsService } from './app/services'
+import { intializeAppAccessConfig } from './app/utils'
 
 const routes: Route[] = [
   {
@@ -77,11 +77,6 @@ const routes: Route[] = [
     data: { key: RoutePath.JACKIE_CHAN_STAR }
   }
 ]
-
-const intializeAppAccessConfig = async (): Promise<unknown> => {
-  const f = inject(FetchCollectionsService)
-  return await f.load()
-}
 
 export const appConfig: ApplicationConfig = {
   providers: [

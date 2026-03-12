@@ -1,6 +1,6 @@
-import { ChangeDetectionStrategy, Component, input, OnInit, signal } from '@angular/core'
-import { ActivatedRoute, Router } from '@angular/router'
 import { CommonModule } from '@angular/common'
+import { ChangeDetectionStrategy, Component, computed, input, OnInit, signal } from '@angular/core'
+import { ActivatedRoute, Router } from '@angular/router'
 
 import { RoutePath } from '../../const'
 import { CollectionItem } from '../../model'
@@ -25,6 +25,9 @@ export class CollectionComponent implements OnInit {
   readonly list = signal<CollectionItem[]>([])
   readonly filterState = signal<{ has: boolean, absent: boolean }>({ has: false, absent: false })
 
+  readonly hasAmount = computed(() => this.collection().filter(({ has }) => has).length)
+  readonly absentAmount = computed(() => this.collection().length - this.hasAmount())
+
   constructor (
     private readonly storage: CollectionStorageService,
     private readonly router: Router,
@@ -37,13 +40,7 @@ export class CollectionComponent implements OnInit {
     this.setFilters()
   }
 
-  get has (): number { return this.collection().filter(({ has }) => has).length }
-
-  get absent (): number { return this.collection().length - this.has }
-
   readonly back = (): void => { this.router.navigate([`/${RoutePath.LIST}`]) }
-
-  readonly trackBy = (i: number): number => i
 
   readonly change = (e: { path: RoutePath, has: boolean, n: number }) => {
     this.storage.change({ ...e })
@@ -65,7 +62,7 @@ export class CollectionComponent implements OnInit {
   }
 
   readonly hasFilter = (): void => {
-    if (this.has <= 0) return
+    if (this.hasAmount() <= 0) return
     const filterState = this.filterState()
     this.filterState.set({ ...filterState, has: !filterState.has })
     this.updateQueryParams()
@@ -73,7 +70,7 @@ export class CollectionComponent implements OnInit {
   }
 
   readonly absentFilter = (): void => {
-    if (this.absent <= 0) return
+    if (this.absentAmount() <= 0) return
     const filterState = this.filterState()
     this.filterState.set({ ...filterState, absent: !filterState.absent })
     this.updateQueryParams()
