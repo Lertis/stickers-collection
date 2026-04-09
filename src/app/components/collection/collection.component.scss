@@ -1,7 +1,28 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
 .header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+
   .back {
     font-size: 40px;
     padding: 0 50px;
+    position: absolute;
+    left: 0;
+
+    &:hover {
+      cursor: pointer;
+    }
+
     &:hover {
       cursor: pointer;
     }
@@ -13,30 +34,39 @@
     justify-content: center;
     gap: 15px;
     margin: 15px;
+    font-size: 1.2rem;
+
     .has,
     .absent {
       border: 1px dotted;
       border-radius: 4px;
       padding: 5px;
     }
+
     .has,
     .absent:hover {
       cursor: pointer;
     }
+
     .has {
       border-color: #00d26a;
+
       &__active {
         background: rgba($color: #00d26a, $alpha: 0.1);
       }
+
       &__inactive {
         cursor: not-allowed;
       }
     }
+
     .absent {
       border-color: #f92f60;
+
       &__active {
         background: rgba($color: #f92f60, $alpha: 0.1);
       }
+
       &__inactive {
         cursor: not-allowed;
       }
@@ -45,8 +75,11 @@
 }
 
 .list {
+  flex: 1;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 15px;
+  overflow-y: auto;
+  margin-top: 20px;
 }

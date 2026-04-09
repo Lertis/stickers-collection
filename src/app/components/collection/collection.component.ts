@@ -99,7 +99,7 @@ export class CollectionComponent implements OnInit {
     } else if (absent) {
       this.router.navigate([], { queryParams: { has: false }, queryParamsHandling: 'merge' })
     } else {
-      this.router.navigate([], { queryParams: {}, queryParamsHandling: 'merge' })
+      this.router.navigate([], { queryParams: {}})
     }
   }
 
