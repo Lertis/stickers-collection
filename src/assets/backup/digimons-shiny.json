@@ -125,7 +125,7 @@
     "vertical": true
   },
   {
-    "has": false,
+    "has": true,
     "number": 26,
     "vertical": true
   },
@@ -195,7 +195,7 @@
     "vertical": false
   },
   {
-    "has": false,
+    "has": true,
     "number": 40,
     "vertical": false
   },
