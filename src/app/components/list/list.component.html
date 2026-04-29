@@ -4,7 +4,7 @@
   </div>
 } @else {
   <div class="container">
-    @for (item of collection(); track $index) {
+    @for (item of collection(); track item.path) {
       <div
         class="card"
         (click)="navigate(item.path, item.collection)"

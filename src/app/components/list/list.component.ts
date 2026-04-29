@@ -37,7 +37,7 @@ export class ListComponent {
 
   readonly width = (path: RoutePath): number => { return this.resolutionMap.get(path).width }
 
-  readonly height = (path: RoutePath): number => { return this.resolutionMap.get(path).width }
+  readonly height = (path: RoutePath): number => { return this.resolutionMap.get(path).height }
 
   navigate (path: RoutePath, collection: CollectionItem[]) {
     const navigationExtras: NavigationExtras = { state: { data: path, collection } }
@@ -51,7 +51,7 @@ export class ListComponent {
       this.finishMap.set(path, this.progress(collection))
     })
     this.collection.set(clone)
-    setTimeout(() => this.loading.set(false), randomFromTo(1, 2))
+    setTimeout(() => this.loading.set(false), randomFromTo(1000, 1400))
   }
 
   private progress (collection: CollectionItem[]): number {

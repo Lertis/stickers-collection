@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, effect, input, output, signal } from '@angular/core'
+import { ChangeDetectionStrategy, Component, computed, input, output, signal } from '@angular/core'
 import { CommonModule } from '@angular/common'
 
 import { CollectionItem } from '../../model'
@@ -21,28 +21,19 @@ export class ItemCardComponent {
 
   readonly itemChange = output<{ path: RoutePath, has: boolean, n: number }>()
 
-  readonly path = signal<string>(null)
-  readonly width = signal<number>(null)
-  readonly height = signal<number>(null)
   readonly isReadonly = signal<boolean>(env.production)
 
   readonly itemHas = computed(() => this.item().has)
   readonly isVertical = computed(() => this.item().vertical)
+  readonly path = computed(() => `assets/img/${this.key()}/${this.item().number}.jpg`)
+  readonly width = computed(() => this.item().vertical ? 100 : 200)
+  readonly height = computed(() => this.item().vertical ? 200 : 100)
 
   readonly items: Array<{ has: boolean }> = [
     { has: true },
     { has: false }
   ]
 
-  constructor () {
-    effect(() => {
-      const item = this.item()
-      const { number, vertical } = { ...item }
-      this.path.set(this.createPath({ key: this.key(), number }))
-      this.width.set(vertical ? 100 : 200)
-      this.height.set(vertical ? 200 : 100)
-    })
-  }
 
   readonly change = ({ has }: { has: boolean }): void => {
     if ((has && this.item().has) || (!has && !this.item().has)) return

@@ -28,7 +28,7 @@
   </div>
 
   <div class="list">
-    @for (item of list(); track $index) {
+    @for (item of list(); track item.number) {
       <stk-item-card [key]="key()" [item]="item" (itemChange)="change($event)"></stk-item-card>
     }
   </div>

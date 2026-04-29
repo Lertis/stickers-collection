@@ -22,7 +22,15 @@ export class CollectionComponent implements OnInit {
   readonly key = input.required<RoutePath>()
   readonly collection = input.required<CollectionItem[]>()
 
-  readonly list = signal<CollectionItem[]>([])
+  readonly list = computed(() => {
+    const { has, absent } = this.filterState()
+    const all = this.collection()
+    if (!has && !absent) return all
+    return all
+      .filter(item => (has && item.has) || (absent && !item.has))
+      .sort((a, b) => a.number - b.number)
+  })
+
   readonly filterState = signal<{ has: boolean, absent: boolean }>({ has: false, absent: false })
 
   readonly hasAmount = computed(() => this.collection().filter(({ has }) => has).length)
@@ -35,46 +43,25 @@ export class CollectionComponent implements OnInit {
   ) { }
 
   ngOnInit (): void {
-    this.initProps()
     this.initFiltersFromQuery()
-    this.setFilters()
   }
 
   readonly back = (): void => { this.router.navigate([`/${RoutePath.LIST}`]) }
 
   readonly change = (e: { path: RoutePath, has: boolean, n: number }) => {
     this.storage.change({ ...e })
-    this.setFilters()
-  }
-
-  readonly setFilters = (): void => {
-    const { has, absent } = { ...this.filterState() }
-    if (Object.values({ has, absent }).every(v => !v)) {
-      this.list.set(this.collection())
-      return
-    }
-
-    let list: CollectionItem[] = []
-    if (has) list = list.concat(this.collection().filter(({ has }) => has))
-    if (absent) list = list.concat(this.collection().filter(({ has }) => !has))
-    list.sort((a, b) => a.number - b.number)
-    this.list.set(list)
   }
 
   readonly hasFilter = (): void => {
     if (this.hasAmount() <= 0) return
-    const filterState = this.filterState()
-    this.filterState.set({ ...filterState, has: !filterState.has })
+    this.filterState.update(s => ({ ...s, has: !s.has }))
     this.updateQueryParams()
-    this.setFilters()
   }
 
   readonly absentFilter = (): void => {
     if (this.absentAmount() <= 0) return
-    const filterState = this.filterState()
-    this.filterState.set({ ...filterState, absent: !filterState.absent })
+    this.filterState.update(s => ({ ...s, absent: !s.absent }))
     this.updateQueryParams()
-    this.setFilters()
   }
 
   private readonly initFiltersFromQuery = (): void => {
@@ -102,6 +89,4 @@ export class CollectionComponent implements OnInit {
       this.router.navigate([], { queryParams: {}})
     }
   }
-
-  private readonly initProps = (): void => this.list.set(this.collection())
 }
