@@ -40,7 +40,7 @@
     "vertical": true
   },
   {
-    "has": false,
+    "has": true,
     "number": 9,
     "vertical": false
   },
@@ -65,7 +65,7 @@
     "vertical": true
   },
   {
-    "has": false,
+    "has": true,
     "number": 14,
     "vertical": true
   },
@@ -165,7 +165,7 @@
     "vertical": true
   },
   {
-    "has": false,
+    "has": true,
     "number": 34,
     "vertical": true
   },
@@ -210,7 +210,7 @@
     "vertical": true
   },
   {
-    "has": false,
+    "has": true,
     "number": 43,
     "vertical": true
   },
@@ -250,12 +250,12 @@
     "vertical": false
   },
   {
-    "has": false,
+    "has": true,
     "number": 51,
     "vertical": false
   },
   {
-    "has": false,
+    "has": true,
     "number": 52,
     "vertical": false
   },
@@ -335,7 +335,7 @@
     "vertical": false
   },
   {
-    "has": false,
+    "has": true,
     "number": 68,
     "vertical": false
   }

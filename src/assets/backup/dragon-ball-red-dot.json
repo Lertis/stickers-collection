@@ -106,37 +106,37 @@
   },
   {
     "number": 22,
-    "has": false,
+    "has": true,
     "vertical": true
   },
   {
     "number": 23,
-    "has": false,
+    "has": true,
     "vertical": false
   },
   {
     "number": 24,
-    "has": false,
+    "has": true,
     "vertical": true
   },
   {
     "number": 25,
-    "has": false,
+    "has": true,
     "vertical": true
   },
   {
     "number": 26,
-    "has": false,
+    "has": true,
     "vertical": true
   },
   {
     "number": 27,
-    "has": false,
+    "has": true,
     "vertical": false
   },
   {
     "number": 28,
-    "has": false,
+    "has": true,
     "vertical": true
   },
   {
