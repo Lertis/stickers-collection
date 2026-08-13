@@ -7,6 +7,7 @@ export enum RoutePath {
   DRAGON_BALL_FLEER_1 = 'dragon-ball-fleer-1',
   DRAGON_BALL_FLEER_2 = 'dragon-ball-fleer-2',
   DRAGON_BALL_FLEER_3 = 'dragon-ball-fleer-3',
+  DRAGON_BALL_Z = 'dragon-ball-z',
   LION_KING = 'lion-king',
   DIGIMONS = 'digimons',
   DIGIMONS_SHINY = 'digimons-shiny',

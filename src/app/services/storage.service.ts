@@ -18,6 +18,7 @@ export class CollectionStorageService {
     [RoutePath.DRAGON_BALL_NO_CIRCLE]: [],
     [RoutePath.DRAGON_BALL_Z_RED_DOT]: [],
     [RoutePath.DRAGON_BALL_Z_YELLOW_DOT]: [],
+    [RoutePath.DRAGON_BALL_Z]: [],
     [RoutePath.JACKIE_CHAN]: [],
     [RoutePath.JACKIE_CHAN_STAR]: [],
     [RoutePath.LION_KING]: [],

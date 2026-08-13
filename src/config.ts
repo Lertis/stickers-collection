@@ -52,6 +52,11 @@ const routes: Route[] = [
     data: { key: RoutePath.DRAGON_BALL_FLEER_3 }
   },
   {
+    path: RoutePath.DRAGON_BALL_Z,
+    loadComponent: () => import("./app/components/collection-outlet/collection-outlet.component").then(({ CollectionOutletComponent }) => CollectionOutletComponent),
+    data: { key: RoutePath.DRAGON_BALL_Z }
+  },
+  {
     path: RoutePath.LION_KING,
     loadComponent: () => import("./app/components/collection-outlet/collection-outlet.component").then(({ CollectionOutletComponent }) => CollectionOutletComponent),
     data: { key: RoutePath.LION_KING }

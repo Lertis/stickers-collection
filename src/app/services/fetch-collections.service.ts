@@ -15,6 +15,7 @@ const COLLECTION_CONFIG: CollectionMeta[] = [
   { name: 'Dragon Ball fleer (#1)',     path: RoutePath.DRAGON_BALL_FLEER_1,      vertical: false, cover: ''},
   { name: 'Dragon Ball fleer (#2)',     path: RoutePath.DRAGON_BALL_FLEER_2,      vertical: false, cover: ''},
   { name: 'Dragon Ball fleer (#3)',     path: RoutePath.DRAGON_BALL_FLEER_3,      vertical: false, cover: ''},
+  { name: 'Dragon Ball Z',              path: RoutePath.DRAGON_BALL_Z,            vertical: false, cover: ''},
   { name: 'Lion King',                  path: RoutePath.LION_KING,                vertical: true, cover: ''  },
   { name: 'Digimons',                   path: RoutePath.DIGIMONS,                 vertical: false , cover: ''},
   { name: 'Digimons shiny',             path: RoutePath.DIGIMONS_SHINY,           vertical: false, cover: '' },
