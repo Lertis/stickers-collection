@@ -239,9 +239,34 @@
     "number": 48,
     "vertical": true
   },
-    {
+  {
     "has": false,
     "number": 49,
+    "vertical": true
+  },
+  {
+    "has": false,
+    "number": 50,
+    "vertical": true
+  },
+  {
+    "has": false,
+    "number": 51,
+    "vertical": true
+  },
+  {
+    "has": false,
+    "number": 52,
+    "vertical": true
+  },
+  {
+    "has": false,
+    "number": 53,
+    "vertical": true
+  },
+  {
+    "has": false,
+    "number": 54,
     "vertical": true
   }
 ]
