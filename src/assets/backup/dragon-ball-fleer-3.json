@@ -2,7 +2,7 @@
   {
     "has": false,
     "number": 1,
-    "vertical": true
+    "vertical": false
   },
   {
     "has": true,
@@ -12,7 +12,7 @@
   {
     "has": false,
     "number": 3,
-    "vertical": true
+    "vertical": false
   },
   {
     "has": true,
@@ -32,12 +32,12 @@
   {
     "has": false,
     "number": 7,
-    "vertical": true
+    "vertical": false
   },
   {
     "has": false,
     "number": 8,
-    "vertical": true
+    "vertical": false
   },
   {
     "has": false,
@@ -87,12 +87,12 @@
   {
     "has": false,
     "number": 18,
-    "vertical": true
+    "vertical": false
   },
   {
     "has": false,
     "number": 19,
-    "vertical": true
+    "vertical": false
   },
   {
     "has": true,
@@ -117,7 +117,7 @@
   {
     "has": false,
     "number": 24,
-    "vertical": true
+    "vertical": false
   },
   {
     "has": false,
@@ -197,7 +197,7 @@
   {
     "has": false,
     "number": 40,
-    "vertical": false
+    "vertical": true
   },
   {
     "has": false,
@@ -262,12 +262,12 @@
   {
     "has": true,
     "number": 53,
-    "vertical": true
+    "vertical": false
   },
   {
     "has": true,
     "number": 54,
-    "vertical": true
+    "vertical": false
   },
   {
     "has": false,
@@ -287,7 +287,7 @@
   {
     "has": true,
     "number": 58,
-    "vertical": false
+    "vertical": true
   },
   {
     "has": false,
@@ -297,7 +297,7 @@
   {
     "has": true,
     "number": 60,
-    "vertical": true
+    "vertical": false
   },
   {
     "has": true,
@@ -307,7 +307,7 @@
   {
     "has": true,
     "number": 62,
-    "vertical": false
+    "vertical": true
   },
   {
     "has": false,

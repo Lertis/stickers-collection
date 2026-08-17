@@ -28,8 +28,11 @@
         </div>
       } @else {
         <div class="readable">
-          <div class="has" [ngClass]="{ 'active': itemHas(), 'inactive': !itemHas() }" (click)="change({ has: true })">✅</div>
-          <div class="absent" [ngClass]="{ 'active': !itemHas(), 'inactive': itemHas()}" (click)="change({ has: false })">❌</div>
+          @if (itemHas()) {
+            <div class="has" [ngClass]="{ 'active': itemHas(), 'inactive': !itemHas() }" (click)="change({ has: true })">✅</div>
+          } @else {
+            <div class="absent" [ngClass]="{ 'active': !itemHas(), 'inactive': itemHas()}" (click)="change({ has: false })">❌</div>
+          }
         </div>
       }
     </div>
