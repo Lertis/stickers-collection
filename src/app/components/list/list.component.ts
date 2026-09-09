@@ -44,6 +44,13 @@ export class ListComponent {
     this.router.navigate([path], navigationExtras)
   }
 
+  readonly progressBorder = (path: RoutePath): string => {
+    const percent = this.finishMap.get(path)
+    const color = this.progressColor(percent)
+    const half = percent / 2
+    return `conic-gradient(${color} 0%, ${color} ${half}%, #ccc ${half}%, #ccc ${100 - half}%, ${color} ${100 - half}%, ${color} 100%)`
+  }
+
   private init (): void {
     const clone = cloneDeep(this.collectionStorage.collections)
     clone.forEach(({ path, vertical, collection }) => {
@@ -57,5 +64,11 @@ export class ListComponent {
   private progress (collection: CollectionItem[]): number {
     const has = collection.reduce((acc, v) => v.has ? acc + 1 : acc, 0)
     return (has / collection.length) * 100
+  }
+
+  private progressColor (percent: number): string {
+    if (percent <= 20) return '#f92f60'
+    if (percent < 90) return '#e2a533'
+    return '#1a990c'
   }
 }

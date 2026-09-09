@@ -4,39 +4,47 @@
   place-items: center;
   gap: 15px;
   padding: 1em;
-  .card {
-    width: 250px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    display: grid;
-    place-items: center;
-    min-height: 15vh;
-    padding: 15px 0;
-    gap: 10px;
+  .card-frame {
+    width: 256px;
+    border-radius: 13px;
+    padding: 3px;
+    transition: background 0.2s ease;
 
-    .label {
-      display: flex;
-      gap: 5px;
-      align-items: center;
-    }
+    .card {
+      width: 100%;
+      border-radius: 10px;
+      background: #ebebeb;
+      display: grid;
+      place-items: center;
+      min-height: 15vh;
+      padding: 15px 0;
+      gap: 10px;
 
-    .vertical-image {
-      width: 200px;
-      max-width: 200px;
-      height: 100px;
-      max-height: 100px;
-      filter: brightness(0.75);
-    }
+      .label {
+        display: flex;
+        gap: 5px;
+        align-items: center;
+      }
 
-    .horizontal-image {
-      width: 100px;
-      max-width: 100px;
-      height: 200px;
-      max-height: 200px;
-      filter: brightness(0.75);
+      .image-wrap {
+        width: 200px;
+        height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img {
+          max-width: 100%;
+          max-height: 100%;
+          width: auto;
+          height: auto;
+          object-fit: contain;
+          filter: brightness(0.75);
+        }
+      }
     }
   }
-  .card:hover {
+  .card-frame:hover {
     cursor: pointer;
   }
 }
@@ -59,16 +67,3 @@
   }
 }
 
-:host {
-  .mat-mdc-progress-spinner {
-    &.low {
-      --mdc-circular-progress-active-indicator-color: #f92f60;
-    }
-    &.medium {
-      --mdc-circular-progress-active-indicator-color: #e2a533;
-    }
-    &.hight {
-      --mdc-circular-progress-active-indicator-color: #1a990c;
-    }
-  }
-}
