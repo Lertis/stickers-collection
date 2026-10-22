@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, input, output, signal } from '@angular/core'
+import { ChangeDetectionStrategy, Component, computed, input, linkedSignal, output, signal } from '@angular/core'
 import { CommonModule } from '@angular/common'
 
 import { CollectionItem } from '../../model'
@@ -28,6 +28,8 @@ export class ItemCardComponent {
   readonly path = computed(() => `assets/img/${this.key()}/${this.item().number}.jpg`)
   readonly width = computed(() => this.item().vertical ? 100 : 200)
   readonly height = computed(() => this.item().vertical ? 200 : 100)
+  // reset to false whenever the image path changes
+  readonly isLoaded = linkedSignal({ source: this.path, computation: () => false })
 
   readonly items: Array<{ has: boolean }> = [
     { has: true },

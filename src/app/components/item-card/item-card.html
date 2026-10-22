@@ -1,15 +1,26 @@
 <div class="card">
   <div class="image">
+    @if (!isLoaded()) {
+      <div
+        class="skeleton"
+        [ngClass]="{
+          'vertical-image': isVertical(),
+          'horizontal-image': !isVertical()
+        }"
+      ></div>
+    }
     <img
-      placeholder
       [src]="path()"
       [alt]="item().number"
       [width]="width()"
       [height]="height()"
+      [class.loaded]="isLoaded()"
       [ngClass]="{
         'vertical-image': isVertical(),
         'horizontal-image': !isVertical()
       }"
+      (load)="isLoaded.set(true)"
+      (error)="isLoaded.set(true)"
     >
     <div class="number">
       № {{ item().number }}
